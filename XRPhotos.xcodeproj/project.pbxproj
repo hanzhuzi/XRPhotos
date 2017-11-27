@@ -1,0 +1,886 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01EFBAE81FC7EE9500C2D94A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAE71FC7EE9500C2D94A /* main.m */; };
+		01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */; };
+		01EFBAEE1FC7EE9500C2D94A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAED1FC7EE9500C2D94A /* ViewController.m */; };
+		01EFBAF11FC7EE9500C2D94A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01EFBAEF1FC7EE9500C2D94A /* Main.storyboard */; };
+		01EFBAF31FC7EE9500C2D94A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EFBAF21FC7EE9500C2D94A /* Assets.xcassets */; };
+		01EFBAF61FC7EE9500C2D94A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01EFBAF41FC7EE9500C2D94A /* LaunchScreen.storyboard */; };
+		01EFBB011FC7EE9500C2D94A /* XRPhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB001FC7EE9500C2D94A /* XRPhotosTests.m */; };
+		01EFBB0C1FC7EE9500C2D94A /* XRPhotosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB0B1FC7EE9500C2D94A /* XRPhotosUITests.m */; };
+		01EFBB3B1FC7EF6C00C2D94A /* PhotoAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB1D1FC7EF6C00C2D94A /* PhotoAlbumListViewController.m */; };
+		01EFBB3C1FC7EF6C00C2D94A /* XRPhotoAlbumListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB1F1FC7EF6C00C2D94A /* XRPhotoAlbumListCell.m */; };
+		01EFBB3D1FC7EF6C00C2D94A /* XRPhotoAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB211FC7EF6C00C2D94A /* XRPhotoAlbumModel.m */; };
+		01EFBB3E1FC7EF6C00C2D94A /* XRImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB251FC7EF6C00C2D94A /* XRImagePickerController.m */; };
+		01EFBB3F1FC7EF6C00C2D94A /* XRPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB271FC7EF6C00C2D94A /* XRPhotoBrowser.m */; };
+		01EFBB401FC7EF6C00C2D94A /* XRPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB291FC7EF6C00C2D94A /* XRPhotoPickerViewController.m */; };
+		01EFBB411FC7EF6C00C2D94A /* XRPhotoAlbumListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB2C1FC7EF6C00C2D94A /* XRPhotoAlbumListView.m */; };
+		01EFBB421FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB2E1FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.m */; };
+		01EFBB431FC7EF6C00C2D94A /* XRPhotoPickerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB301FC7EF6C00C2D94A /* XRPhotoPickerBottomView.m */; };
+		01EFBB441FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB321FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.m */; };
+		01EFBB451FC7EF6C00C2D94A /* XRPhotoAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB341FC7EF6C00C2D94A /* XRPhotoAssetModel.m */; };
+		01EFBB461FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB371FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.m */; };
+		01EFBB471FC7EF6C00C2D94A /* XRPhtoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB3A1FC7EF6C00C2D94A /* XRPhtoManager.m */; };
+		01EFBB4A1FC7F47F00C2D94A /* PhotoSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBB491FC7F47F00C2D94A /* PhotoSelectViewController.m */; };
+		01EFBB751FC8043100C2D94A /* XRPhotos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01EFBB741FC8043100C2D94A /* XRPhotos.bundle */; };
+		6D82D286621165062E44AE2A /* Pods_XRPhotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B72508CC876C77AC8A77A33 /* Pods_XRPhotos.framework */; };
+		BAD33838740F3DD51787D0D0 /* Pods_XRPhotosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA120E0A85CEE40955EEA0F /* Pods_XRPhotosTests.framework */; };
+		DA41DF84AB60156C795B17D4 /* Pods_XRPhotosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F22C86CE3F906EA78A5F35 /* Pods_XRPhotosUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01EFBAFD1FC7EE9500C2D94A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01EFBADB1FC7EE9500C2D94A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01EFBAE21FC7EE9500C2D94A;
+			remoteInfo = XRPhotos;
+		};
+		01EFBB081FC7EE9500C2D94A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01EFBADB1FC7EE9500C2D94A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01EFBAE21FC7EE9500C2D94A;
+			remoteInfo = XRPhotos;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01EFBAE31FC7EE9500C2D94A /* XRPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01EFBAE71FC7EE9500C2D94A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		01EFBAE91FC7EE9500C2D94A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		01EFBAEC1FC7EE9500C2D94A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		01EFBAED1FC7EE9500C2D94A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		01EFBAF01FC7EE9500C2D94A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01EFBAF21FC7EE9500C2D94A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01EFBAF51FC7EE9500C2D94A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01EFBAF71FC7EE9500C2D94A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01EFBAFC1FC7EE9500C2D94A /* XRPhotosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XRPhotosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01EFBB001FC7EE9500C2D94A /* XRPhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XRPhotosTests.m; sourceTree = "<group>"; };
+		01EFBB021FC7EE9500C2D94A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01EFBB071FC7EE9500C2D94A /* XRPhotosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XRPhotosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01EFBB0B1FC7EE9500C2D94A /* XRPhotosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XRPhotosUITests.m; sourceTree = "<group>"; };
+		01EFBB0D1FC7EE9500C2D94A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01EFBB1C1FC7EF6C00C2D94A /* PhotoAlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbumListViewController.h; sourceTree = "<group>"; };
+		01EFBB1D1FC7EF6C00C2D94A /* PhotoAlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbumListViewController.m; sourceTree = "<group>"; };
+		01EFBB1E1FC7EF6C00C2D94A /* XRPhotoAlbumListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumListCell.h; sourceTree = "<group>"; };
+		01EFBB1F1FC7EF6C00C2D94A /* XRPhotoAlbumListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumListCell.m; sourceTree = "<group>"; };
+		01EFBB201FC7EF6C00C2D94A /* XRPhotoAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumModel.h; sourceTree = "<group>"; };
+		01EFBB211FC7EF6C00C2D94A /* XRPhotoAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumModel.m; sourceTree = "<group>"; };
+		01EFBB241FC7EF6C00C2D94A /* XRImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRImagePickerController.h; sourceTree = "<group>"; };
+		01EFBB251FC7EF6C00C2D94A /* XRImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRImagePickerController.m; sourceTree = "<group>"; };
+		01EFBB261FC7EF6C00C2D94A /* XRPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoBrowser.h; sourceTree = "<group>"; };
+		01EFBB271FC7EF6C00C2D94A /* XRPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoBrowser.m; sourceTree = "<group>"; };
+		01EFBB281FC7EF6C00C2D94A /* XRPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerViewController.h; sourceTree = "<group>"; };
+		01EFBB291FC7EF6C00C2D94A /* XRPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerViewController.m; sourceTree = "<group>"; };
+		01EFBB2B1FC7EF6C00C2D94A /* XRPhotoAlbumListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumListView.h; sourceTree = "<group>"; };
+		01EFBB2C1FC7EF6C00C2D94A /* XRPhotoAlbumListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumListView.m; sourceTree = "<group>"; };
+		01EFBB2D1FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerAssetCell.h; sourceTree = "<group>"; };
+		01EFBB2E1FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerAssetCell.m; sourceTree = "<group>"; };
+		01EFBB2F1FC7EF6C00C2D94A /* XRPhotoPickerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerBottomView.h; sourceTree = "<group>"; };
+		01EFBB301FC7EF6C00C2D94A /* XRPhotoPickerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerBottomView.m; sourceTree = "<group>"; };
+		01EFBB311FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerTakeCameraCell.h; sourceTree = "<group>"; };
+		01EFBB321FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerTakeCameraCell.m; sourceTree = "<group>"; };
+		01EFBB331FC7EF6C00C2D94A /* XRPhotoAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAssetModel.h; sourceTree = "<group>"; };
+		01EFBB341FC7EF6C00C2D94A /* XRPhotoAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAssetModel.m; sourceTree = "<group>"; };
+		01EFBB361FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XRPhotosCategorys.h"; sourceTree = "<group>"; };
+		01EFBB371FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XRPhotosCategorys.m"; sourceTree = "<group>"; };
+		01EFBB381FC7EF6C00C2D94A /* XRPhotosConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotosConfigs.h; sourceTree = "<group>"; };
+		01EFBB391FC7EF6C00C2D94A /* XRPhtoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhtoManager.h; sourceTree = "<group>"; };
+		01EFBB3A1FC7EF6C00C2D94A /* XRPhtoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhtoManager.m; sourceTree = "<group>"; };
+		01EFBB481FC7F47F00C2D94A /* PhotoSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSelectViewController.h; sourceTree = "<group>"; };
+		01EFBB491FC7F47F00C2D94A /* PhotoSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSelectViewController.m; sourceTree = "<group>"; };
+		01EFBB741FC8043100C2D94A /* XRPhotos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XRPhotos.bundle; sourceTree = "<group>"; };
+		05F22C86CE3F906EA78A5F35 /* Pods_XRPhotosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XRPhotosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D2DEFF2C764FF810E71F32C /* Pods-XRPhotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XRPhotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XRPhotos/Pods-XRPhotos.debug.xcconfig"; sourceTree = "<group>"; };
+		3B72508CC876C77AC8A77A33 /* Pods_XRPhotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XRPhotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		496A299EC0B6C86AE5E5328C /* Pods-XRPhotosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XRPhotosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XRPhotosTests/Pods-XRPhotosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4BC95508F92D07BCAB60A6F0 /* Pods-XRPhotosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XRPhotosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XRPhotosUITests/Pods-XRPhotosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9DA120E0A85CEE40955EEA0F /* Pods_XRPhotosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XRPhotosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4EA2421C5028D33CED1F769 /* Pods-XRPhotosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XRPhotosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XRPhotosUITests/Pods-XRPhotosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D5D5DBAE1685047D55E6936A /* Pods-XRPhotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XRPhotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-XRPhotos/Pods-XRPhotos.release.xcconfig"; sourceTree = "<group>"; };
+		FECFD6C374D4F7CB3632039C /* Pods-XRPhotosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XRPhotosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XRPhotosTests/Pods-XRPhotosTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01EFBAE01FC7EE9500C2D94A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D82D286621165062E44AE2A /* Pods_XRPhotos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01EFBAF91FC7EE9500C2D94A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAD33838740F3DD51787D0D0 /* Pods_XRPhotosTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01EFBB041FC7EE9500C2D94A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA41DF84AB60156C795B17D4 /* Pods_XRPhotosUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01EFBADA1FC7EE9500C2D94A = {
+			isa = PBXGroup;
+			children = (
+				01EFBAE51FC7EE9500C2D94A /* XRPhotos */,
+				01EFBAFF1FC7EE9500C2D94A /* XRPhotosTests */,
+				01EFBB0A1FC7EE9500C2D94A /* XRPhotosUITests */,
+				01EFBAE41FC7EE9500C2D94A /* Products */,
+				D0A84E578132D8F293655D3A /* Pods */,
+				799B818AA61D00D861EFA74F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		01EFBAE41FC7EE9500C2D94A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBAE31FC7EE9500C2D94A /* XRPhotos.app */,
+				01EFBAFC1FC7EE9500C2D94A /* XRPhotosTests.xctest */,
+				01EFBB071FC7EE9500C2D94A /* XRPhotosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01EFBAE51FC7EE9500C2D94A /* XRPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB191FC7EF0300C2D94A /* XRPhotos */,
+				01EFBAE91FC7EE9500C2D94A /* AppDelegate.h */,
+				01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */,
+				01EFBB481FC7F47F00C2D94A /* PhotoSelectViewController.h */,
+				01EFBB491FC7F47F00C2D94A /* PhotoSelectViewController.m */,
+				01EFBAEC1FC7EE9500C2D94A /* ViewController.h */,
+				01EFBAED1FC7EE9500C2D94A /* ViewController.m */,
+				01EFBAEF1FC7EE9500C2D94A /* Main.storyboard */,
+				01EFBAF21FC7EE9500C2D94A /* Assets.xcassets */,
+				01EFBAF41FC7EE9500C2D94A /* LaunchScreen.storyboard */,
+				01EFBAF71FC7EE9500C2D94A /* Info.plist */,
+				01EFBAE61FC7EE9500C2D94A /* Supporting Files */,
+			);
+			path = XRPhotos;
+			sourceTree = "<group>";
+		};
+		01EFBAE61FC7EE9500C2D94A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBAE71FC7EE9500C2D94A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01EFBAFF1FC7EE9500C2D94A /* XRPhotosTests */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB001FC7EE9500C2D94A /* XRPhotosTests.m */,
+				01EFBB021FC7EE9500C2D94A /* Info.plist */,
+			);
+			path = XRPhotosTests;
+			sourceTree = "<group>";
+		};
+		01EFBB0A1FC7EE9500C2D94A /* XRPhotosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB0B1FC7EE9500C2D94A /* XRPhotosUITests.m */,
+				01EFBB0D1FC7EE9500C2D94A /* Info.plist */,
+			);
+			path = XRPhotosUITests;
+			sourceTree = "<group>";
+		};
+		01EFBB191FC7EF0300C2D94A /* XRPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB741FC8043100C2D94A /* XRPhotos.bundle */,
+				01EFBB1A1FC7EF2400C2D94A /* Clasess */,
+			);
+			path = XRPhotos;
+			sourceTree = "<group>";
+		};
+		01EFBB1A1FC7EF2400C2D94A /* Clasess */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB1B1FC7EF6C00C2D94A /* PhotoAlbum */,
+				01EFBB221FC7EF6C00C2D94A /* PhotoPickerController */,
+				01EFBB351FC7EF6C00C2D94A /* XRPhotosCategorys */,
+				01EFBB381FC7EF6C00C2D94A /* XRPhotosConfigs.h */,
+				01EFBB391FC7EF6C00C2D94A /* XRPhtoManager.h */,
+				01EFBB3A1FC7EF6C00C2D94A /* XRPhtoManager.m */,
+			);
+			path = Clasess;
+			sourceTree = "<group>";
+		};
+		01EFBB1B1FC7EF6C00C2D94A /* PhotoAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB1C1FC7EF6C00C2D94A /* PhotoAlbumListViewController.h */,
+				01EFBB1D1FC7EF6C00C2D94A /* PhotoAlbumListViewController.m */,
+				01EFBB1E1FC7EF6C00C2D94A /* XRPhotoAlbumListCell.h */,
+				01EFBB1F1FC7EF6C00C2D94A /* XRPhotoAlbumListCell.m */,
+				01EFBB201FC7EF6C00C2D94A /* XRPhotoAlbumModel.h */,
+				01EFBB211FC7EF6C00C2D94A /* XRPhotoAlbumModel.m */,
+			);
+			path = PhotoAlbum;
+			sourceTree = "<group>";
+		};
+		01EFBB221FC7EF6C00C2D94A /* PhotoPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB231FC7EF6C00C2D94A /* Controllers */,
+				01EFBB2A1FC7EF6C00C2D94A /* Views */,
+				01EFBB331FC7EF6C00C2D94A /* XRPhotoAssetModel.h */,
+				01EFBB341FC7EF6C00C2D94A /* XRPhotoAssetModel.m */,
+			);
+			path = PhotoPickerController;
+			sourceTree = "<group>";
+		};
+		01EFBB231FC7EF6C00C2D94A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB241FC7EF6C00C2D94A /* XRImagePickerController.h */,
+				01EFBB251FC7EF6C00C2D94A /* XRImagePickerController.m */,
+				01EFBB261FC7EF6C00C2D94A /* XRPhotoBrowser.h */,
+				01EFBB271FC7EF6C00C2D94A /* XRPhotoBrowser.m */,
+				01EFBB281FC7EF6C00C2D94A /* XRPhotoPickerViewController.h */,
+				01EFBB291FC7EF6C00C2D94A /* XRPhotoPickerViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		01EFBB2A1FC7EF6C00C2D94A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB2B1FC7EF6C00C2D94A /* XRPhotoAlbumListView.h */,
+				01EFBB2C1FC7EF6C00C2D94A /* XRPhotoAlbumListView.m */,
+				01EFBB2D1FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.h */,
+				01EFBB2E1FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.m */,
+				01EFBB2F1FC7EF6C00C2D94A /* XRPhotoPickerBottomView.h */,
+				01EFBB301FC7EF6C00C2D94A /* XRPhotoPickerBottomView.m */,
+				01EFBB311FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.h */,
+				01EFBB321FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		01EFBB351FC7EF6C00C2D94A /* XRPhotosCategorys */ = {
+			isa = PBXGroup;
+			children = (
+				01EFBB361FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.h */,
+				01EFBB371FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.m */,
+			);
+			path = XRPhotosCategorys;
+			sourceTree = "<group>";
+		};
+		799B818AA61D00D861EFA74F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B72508CC876C77AC8A77A33 /* Pods_XRPhotos.framework */,
+				9DA120E0A85CEE40955EEA0F /* Pods_XRPhotosTests.framework */,
+				05F22C86CE3F906EA78A5F35 /* Pods_XRPhotosUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0A84E578132D8F293655D3A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D2DEFF2C764FF810E71F32C /* Pods-XRPhotos.debug.xcconfig */,
+				D5D5DBAE1685047D55E6936A /* Pods-XRPhotos.release.xcconfig */,
+				496A299EC0B6C86AE5E5328C /* Pods-XRPhotosTests.debug.xcconfig */,
+				FECFD6C374D4F7CB3632039C /* Pods-XRPhotosTests.release.xcconfig */,
+				C4EA2421C5028D33CED1F769 /* Pods-XRPhotosUITests.debug.xcconfig */,
+				4BC95508F92D07BCAB60A6F0 /* Pods-XRPhotosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01EFBAE21FC7EE9500C2D94A /* XRPhotos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01EFBB101FC7EE9500C2D94A /* Build configuration list for PBXNativeTarget "XRPhotos" */;
+			buildPhases = (
+				C9CAD492467B19409D4FEA0B /* [CP] Check Pods Manifest.lock */,
+				01EFBADF1FC7EE9500C2D94A /* Sources */,
+				01EFBAE01FC7EE9500C2D94A /* Frameworks */,
+				01EFBAE11FC7EE9500C2D94A /* Resources */,
+				EE0802A088B2F5E8F9BF33EF /* [CP] Embed Pods Frameworks */,
+				0B3AE9161721B729F95F2CF1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XRPhotos;
+			productName = XRPhotos;
+			productReference = 01EFBAE31FC7EE9500C2D94A /* XRPhotos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		01EFBAFB1FC7EE9500C2D94A /* XRPhotosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01EFBB131FC7EE9500C2D94A /* Build configuration list for PBXNativeTarget "XRPhotosTests" */;
+			buildPhases = (
+				C20FB1A6CB6D039EE6259588 /* [CP] Check Pods Manifest.lock */,
+				01EFBAF81FC7EE9500C2D94A /* Sources */,
+				01EFBAF91FC7EE9500C2D94A /* Frameworks */,
+				01EFBAFA1FC7EE9500C2D94A /* Resources */,
+				77D2A00BA630A59FBB6C087C /* [CP] Embed Pods Frameworks */,
+				436603AD732D01F36D9883FA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01EFBAFE1FC7EE9500C2D94A /* PBXTargetDependency */,
+			);
+			name = XRPhotosTests;
+			productName = XRPhotosTests;
+			productReference = 01EFBAFC1FC7EE9500C2D94A /* XRPhotosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		01EFBB061FC7EE9500C2D94A /* XRPhotosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01EFBB161FC7EE9500C2D94A /* Build configuration list for PBXNativeTarget "XRPhotosUITests" */;
+			buildPhases = (
+				33A25D31F594CA2FD5262504 /* [CP] Check Pods Manifest.lock */,
+				01EFBB031FC7EE9500C2D94A /* Sources */,
+				01EFBB041FC7EE9500C2D94A /* Frameworks */,
+				01EFBB051FC7EE9500C2D94A /* Resources */,
+				F58EA3411489C897FA17CE65 /* [CP] Embed Pods Frameworks */,
+				F8F44B95D0596E69CB7A5D9E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01EFBB091FC7EE9500C2D94A /* PBXTargetDependency */,
+			);
+			name = XRPhotosUITests;
+			productName = XRPhotosUITests;
+			productReference = 01EFBB071FC7EE9500C2D94A /* XRPhotosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01EFBADB1FC7EE9500C2D94A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "是心作佛";
+				TargetAttributes = {
+					01EFBAE21FC7EE9500C2D94A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = AYCJR8SJVG;
+						ProvisioningStyle = Manual;
+					};
+					01EFBAFB1FC7EE9500C2D94A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 01EFBAE21FC7EE9500C2D94A;
+					};
+					01EFBB061FC7EE9500C2D94A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 01EFBAE21FC7EE9500C2D94A;
+					};
+				};
+			};
+			buildConfigurationList = 01EFBADE1FC7EE9500C2D94A /* Build configuration list for PBXProject "XRPhotos" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01EFBADA1FC7EE9500C2D94A;
+			productRefGroup = 01EFBAE41FC7EE9500C2D94A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01EFBAE21FC7EE9500C2D94A /* XRPhotos */,
+				01EFBAFB1FC7EE9500C2D94A /* XRPhotosTests */,
+				01EFBB061FC7EE9500C2D94A /* XRPhotosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01EFBAE11FC7EE9500C2D94A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01EFBAF61FC7EE9500C2D94A /* LaunchScreen.storyboard in Resources */,
+				01EFBAF31FC7EE9500C2D94A /* Assets.xcassets in Resources */,
+				01EFBB751FC8043100C2D94A /* XRPhotos.bundle in Resources */,
+				01EFBAF11FC7EE9500C2D94A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01EFBAFA1FC7EE9500C2D94A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01EFBB051FC7EE9500C2D94A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B3AE9161721B729F95F2CF1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XRPhotos/Pods-XRPhotos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33A25D31F594CA2FD5262504 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		436603AD732D01F36D9883FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XRPhotosTests/Pods-XRPhotosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77D2A00BA630A59FBB6C087C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XRPhotosTests/Pods-XRPhotosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C20FB1A6CB6D039EE6259588 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C9CAD492467B19409D4FEA0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE0802A088B2F5E8F9BF33EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XRPhotos/Pods-XRPhotos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F58EA3411489C897FA17CE65 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XRPhotosUITests/Pods-XRPhotosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8F44B95D0596E69CB7A5D9E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XRPhotosUITests/Pods-XRPhotosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01EFBADF1FC7EE9500C2D94A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01EFBB3D1FC7EF6C00C2D94A /* XRPhotoAlbumModel.m in Sources */,
+				01EFBAEE1FC7EE9500C2D94A /* ViewController.m in Sources */,
+				01EFBB431FC7EF6C00C2D94A /* XRPhotoPickerBottomView.m in Sources */,
+				01EFBB401FC7EF6C00C2D94A /* XRPhotoPickerViewController.m in Sources */,
+				01EFBB4A1FC7F47F00C2D94A /* PhotoSelectViewController.m in Sources */,
+				01EFBB411FC7EF6C00C2D94A /* XRPhotoAlbumListView.m in Sources */,
+				01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */,
+				01EFBB3F1FC7EF6C00C2D94A /* XRPhotoBrowser.m in Sources */,
+				01EFBB421FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.m in Sources */,
+				01EFBAE81FC7EE9500C2D94A /* main.m in Sources */,
+				01EFBB3C1FC7EF6C00C2D94A /* XRPhotoAlbumListCell.m in Sources */,
+				01EFBB471FC7EF6C00C2D94A /* XRPhtoManager.m in Sources */,
+				01EFBB461FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.m in Sources */,
+				01EFBB3B1FC7EF6C00C2D94A /* PhotoAlbumListViewController.m in Sources */,
+				01EFBB441FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.m in Sources */,
+				01EFBB3E1FC7EF6C00C2D94A /* XRImagePickerController.m in Sources */,
+				01EFBB451FC7EF6C00C2D94A /* XRPhotoAssetModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01EFBAF81FC7EE9500C2D94A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01EFBB011FC7EE9500C2D94A /* XRPhotosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01EFBB031FC7EE9500C2D94A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01EFBB0C1FC7EE9500C2D94A /* XRPhotosUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01EFBAFE1FC7EE9500C2D94A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01EFBAE21FC7EE9500C2D94A /* XRPhotos */;
+			targetProxy = 01EFBAFD1FC7EE9500C2D94A /* PBXContainerItemProxy */;
+		};
+		01EFBB091FC7EE9500C2D94A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01EFBAE21FC7EE9500C2D94A /* XRPhotos */;
+			targetProxy = 01EFBB081FC7EE9500C2D94A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		01EFBAEF1FC7EE9500C2D94A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01EFBAF01FC7EE9500C2D94A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01EFBAF41FC7EE9500C2D94A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01EFBAF51FC7EE9500C2D94A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01EFBB0E1FC7EE9500C2D94A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		01EFBB0F1FC7EE9500C2D94A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01EFBB111FC7EE9500C2D94A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D2DEFF2C764FF810E71F32C /* Pods-XRPhotos.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuening Wu (Z5NZY5E4ZS)";
+				DEVELOPMENT_TEAM = AYCJR8SJVG;
+				INFOPLIST_FILE = XRPhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkguan.XRPhotos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b9052517-aad4-4672-bc83-b3782159bc88";
+				PROVISIONING_PROFILE_SPECIFIER = DevelopAll;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		01EFBB121FC7EE9500C2D94A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5D5DBAE1685047D55E6936A /* Pods-XRPhotos.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuening Wu (Z5NZY5E4ZS)";
+				DEVELOPMENT_TEAM = AYCJR8SJVG;
+				INFOPLIST_FILE = XRPhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkguan.XRPhotos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b9052517-aad4-4672-bc83-b3782159bc88";
+				PROVISIONING_PROFILE_SPECIFIER = DevelopAll;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		01EFBB141FC7EE9500C2D94A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 496A299EC0B6C86AE5E5328C /* Pods-XRPhotosTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = XRPhotosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkguan.XRPhotosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XRPhotos.app/XRPhotos";
+			};
+			name = Debug;
+		};
+		01EFBB151FC7EE9500C2D94A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FECFD6C374D4F7CB3632039C /* Pods-XRPhotosTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = XRPhotosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkguan.XRPhotosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XRPhotos.app/XRPhotos";
+			};
+			name = Release;
+		};
+		01EFBB171FC7EE9500C2D94A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4EA2421C5028D33CED1F769 /* Pods-XRPhotosUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = XRPhotosUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkguan.XRPhotosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = XRPhotos;
+			};
+			name = Debug;
+		};
+		01EFBB181FC7EE9500C2D94A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC95508F92D07BCAB60A6F0 /* Pods-XRPhotosUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = XRPhotosUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkguan.XRPhotosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = XRPhotos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01EFBADE1FC7EE9500C2D94A /* Build configuration list for PBXProject "XRPhotos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01EFBB0E1FC7EE9500C2D94A /* Debug */,
+				01EFBB0F1FC7EE9500C2D94A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01EFBB101FC7EE9500C2D94A /* Build configuration list for PBXNativeTarget "XRPhotos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01EFBB111FC7EE9500C2D94A /* Debug */,
+				01EFBB121FC7EE9500C2D94A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01EFBB131FC7EE9500C2D94A /* Build configuration list for PBXNativeTarget "XRPhotosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01EFBB141FC7EE9500C2D94A /* Debug */,
+				01EFBB151FC7EE9500C2D94A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01EFBB161FC7EE9500C2D94A /* Build configuration list for PBXNativeTarget "XRPhotosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01EFBB171FC7EE9500C2D94A /* Debug */,
+				01EFBB181FC7EE9500C2D94A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01EFBADB1FC7EE9500C2D94A /* Project object */;
+}
