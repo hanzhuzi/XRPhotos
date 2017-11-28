@@ -16,6 +16,19 @@
     return [[UIImage alloc] initWithContentsOfFile:[bundlePath stringByAppendingPathComponent:imageName]];;
 }
 
++ (UIImage *)backgroundImageWithColor:(UIColor *)backgroundColor size:(CGSize)size {
+    
+    UIGraphicsBeginImageContext(size);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(ctx, backgroundColor.CGColor);
+    CGContextFillRect(ctx, CGRectMake(0, 0, size.width, size.height));
+    
+    UIImage * colorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return colorImg;
+}
+
 - (UIImage *)fixOrientation
 {
     // No-op if the orientation is already correct.

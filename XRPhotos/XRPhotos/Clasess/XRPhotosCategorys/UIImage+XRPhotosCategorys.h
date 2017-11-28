@@ -11,4 +11,5 @@
 @interface UIImage (XRPhotosCategorys)
 + (UIImage *)imageForResouceName:(NSString *)imageName;
 - (UIImage *)fixOrientation;
++ (UIImage *)backgroundImageWithColor:(UIColor *)backgroundColor size:(CGSize)size;
 @end

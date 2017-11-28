@@ -12,7 +12,7 @@
 
 @end
 
-@interface XRPhotoPickerNavigationTitleView : UIButton
+@interface XRPhotoPickerNavigationTitleView : UIView
 
 @property (nonatomic, strong) UILabel * titleLbl;
 @property (nonatomic, strong) XRPhotoPickerNavigationIconView * iconView;

@@ -188,15 +188,13 @@
 
 - (void)setupNavigationBar {
     
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.navigationController.navigationBar.barTintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
-    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage backgroundImageWithColor:UIColorFromRGB(0xFFFFFF) size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
     
     UIButton * rightItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     rightItemBtn.frame = CGRectMake(0, 0, 50, 44);
-    [rightItemBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightItemBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     [rightItemBtn setTitle:@"取消" forState:UIControlStateNormal];
-    rightItemBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    rightItemBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     rightItemBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     [rightItemBtn addTarget:self action:@selector(cancelPhotoPickerAction) forControlEvents:UIControlEventTouchUpInside];
     
@@ -204,11 +202,13 @@
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
     self.navigationTitleBtn = [[XRPhotoPickerNavigationTitleView alloc] init];
-    self.navigationTitleBtn.frame = CGRectMake(0, 0, XR_Screen_Size.width - 130, XR_NavigationBar_Height);
+    self.navigationTitleBtn.frame = CGRectMake(0, 0, XR_Screen_Size.width - 130, 44);
     [self.navigationTitleBtn configNavigationTitleViewWithTitle:@"所有照片"];
     self.navigationItem.titleView = self.navigationTitleBtn;
     
-    [self.navigationTitleBtn addTarget:self action:@selector(showAlbumListWithAnimate) forControlEvents:UIControlEventTouchUpInside];
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showAlbumListWithAnimate)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self.navigationTitleBtn addGestureRecognizer:tapGesture];
 }
 
 #pragma mark - Actions
@@ -443,8 +443,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationItem.titleView = nil;
-    self.navigationItem.titleView = self.navigationTitleBtn;
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void)didReceiveMemoryWarning {
