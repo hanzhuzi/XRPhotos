@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0156EC151FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156EC141FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m */; };
 		01EFBAE81FC7EE9500C2D94A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAE71FC7EE9500C2D94A /* main.m */; };
 		01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */; };
 		01EFBAEE1FC7EE9500C2D94A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAED1FC7EE9500C2D94A /* ViewController.m */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0156EC131FCCFC910093881D /* XRPhotoPickerNavigationTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerNavigationTitleView.h; sourceTree = "<group>"; };
+		0156EC141FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerNavigationTitleView.m; sourceTree = "<group>"; };
 		01EFBAE31FC7EE9500C2D94A /* XRPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EFBAE71FC7EE9500C2D94A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01EFBAE91FC7EE9500C2D94A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 		01EFBB2A1FC7EF6C00C2D94A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0156EC131FCCFC910093881D /* XRPhotoPickerNavigationTitleView.h */,
+				0156EC141FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m */,
 				01EFBB2B1FC7EF6C00C2D94A /* XRPhotoAlbumListView.h */,
 				01EFBB2C1FC7EF6C00C2D94A /* XRPhotoAlbumListView.m */,
 				01EFBB2D1FC7EF6C00C2D94A /* XRPhotoPickerAssetCell.h */,
@@ -607,6 +612,7 @@
 				01EFBB471FC7EF6C00C2D94A /* XRPhtoManager.m in Sources */,
 				01EFBB461FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.m in Sources */,
 				01EFBB3B1FC7EF6C00C2D94A /* PhotoAlbumListViewController.m in Sources */,
+				0156EC151FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m in Sources */,
 				01EFBB441FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.m in Sources */,
 				01EFBB3E1FC7EF6C00C2D94A /* XRImagePickerController.m in Sources */,
 				01EFBB451FC7EF6C00C2D94A /* XRPhotoAssetModel.m in Sources */,

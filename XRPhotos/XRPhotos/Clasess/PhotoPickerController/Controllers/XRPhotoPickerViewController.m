@@ -21,6 +21,7 @@
 #import "UIImage+XRPhotosCategorys.h"
 #import "XRPhotoPickerBottomView.h"
 #import "XRPhotoBrowser.h"
+#import "XRPhotoPickerNavigationTitleView.h"
 
 @interface XRPhotoPickerViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XRPhotoAlbumListViewDelegate, XPhotoBrowserDelegate>
 
@@ -41,7 +42,7 @@
 @property (nonatomic, strong) UIView * albumListMaskView;
 @property (nonatomic, assign) CGSize targetSize;
 
-@property (nonatomic, strong) UIButton * navigationTitleBtn;
+@property (nonatomic, strong) XRPhotoPickerNavigationTitleView * navigationTitleBtn;
 @property (nonatomic, assign) BOOL isShowedAlbumList;
 
 @property (nonatomic, strong) XRPhotoPickerBottomView * bottomView;
@@ -202,10 +203,9 @@
     UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightItemBtn];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
-    self.navigationTitleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.navigationTitleBtn setTitle:@"所有照片" forState:UIControlStateNormal];
-    [self.navigationTitleBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.navigationTitleBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.navigationTitleBtn = [[XRPhotoPickerNavigationTitleView alloc] init];
+    self.navigationTitleBtn.frame = CGRectMake(0, 0, XR_Screen_Size.width - 130, XR_NavigationBar_Height);
+    [self.navigationTitleBtn configNavigationTitleViewWithTitle:@"所有照片"];
     self.navigationItem.titleView = self.navigationTitleBtn;
     
     [self.navigationTitleBtn addTarget:self action:@selector(showAlbumListWithAnimate) forControlEvents:UIControlEventTouchUpInside];
@@ -270,7 +270,7 @@
                 if (weakSelf.Allalbums.count > 0) {
                     weakSelf.selectedAlbum = weakSelf.Allalbums.firstObject;
                     
-                    [weakSelf.navigationTitleBtn setTitle:weakSelf.selectedAlbum.albumTitle forState:UIControlStateNormal];
+                    [weakSelf.navigationTitleBtn configNavigationTitleViewWithTitle:weakSelf.selectedAlbum.albumTitle];
                     [weakSelf.assetArray removeAllObjects];
                     [weakSelf.assetArray addObjectsFromArray:weakSelf.selectedAlbum.phAssets];
                     [weakSelf.mainCollection reloadData];
@@ -310,7 +310,7 @@
                             if (weakSelf.Allalbums.count > 0) {
                                 weakSelf.selectedAlbum = weakSelf.Allalbums.firstObject;
                                 
-                                [weakSelf.navigationTitleBtn setTitle:weakSelf.selectedAlbum.albumTitle forState:UIControlStateNormal];
+                                [weakSelf.navigationTitleBtn configNavigationTitleViewWithTitle:weakSelf.selectedAlbum.albumTitle];
                                 [weakSelf.assetArray removeAllObjects];
                                 [weakSelf.assetArray addObjectsFromArray:weakSelf.selectedAlbum.phAssets];
                                 [weakSelf.mainCollection reloadData];
@@ -443,9 +443,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.navigationController.navigationBar.barTintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
-    self.navigationController.navigationBar.translucent = NO;
+    self.navigationItem.titleView = nil;
+    self.navigationItem.titleView = self.navigationTitleBtn;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -597,7 +596,7 @@
     if (self.selectedAlbum != album) {
         self.selectedAlbum = album;
         
-        [self.navigationTitleBtn setTitle:self.selectedAlbum.albumTitle forState:UIControlStateNormal];
+        [self.navigationTitleBtn configNavigationTitleViewWithTitle:self.selectedAlbum.albumTitle];
         [self.assetArray removeAllObjects];
         [self.assetArray addObjectsFromArray:self.selectedAlbum.phAssets];
         [self.mainCollection reloadData];
