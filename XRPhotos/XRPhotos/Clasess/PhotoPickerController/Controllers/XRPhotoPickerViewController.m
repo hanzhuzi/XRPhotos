@@ -152,7 +152,8 @@
     self.albumListMaskView.alpha = 0.0;
     [self.view addSubview:self.albumListMaskView];
     
-    _albumListView = [[XRPhotoAlbumListView alloc] initWithFrame:CGRectMake(0, -XRPhotoAlbumListMaxHeight, XR_Screen_Size.width,  XRPhotoAlbumListMaxHeight)];
+    CGFloat y = -XRPhotoAlbumListMaxHeight;
+    _albumListView = [[XRPhotoAlbumListView alloc] initWithFrame:CGRectMake(0, y, XR_Screen_Size.width,  XRPhotoAlbumListMaxHeight)];
     [self.view addSubview:_albumListView];
     [self.view bringSubviewToFront:_albumListView];
     _albumListView.delegate = self;

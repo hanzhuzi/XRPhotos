@@ -40,9 +40,9 @@ alpha:1.0]
 #define XR_LargeTitle_NavigationBar_Height 96
 #define XR_Virtual_Bottom_Height 34
 
-#define XRPhotoAlbumListMaxHeight iSiPhoneX ?\
-((XR_Screen_Size.height - XR_iPhoneX_StatusBar_Height - XR_Virtual_Bottom_Height - XR_NavigationBar_Height) * 0.5) :\
-((XR_Screen_Size.height - XR_StatusBar_Height - XR_NavigationBar_Height) * 0.5)
+#define XRPhotoAlbumListMaxHeight (iSiPhoneX ?\
+((XR_Screen_Size.height - XR_iPhoneX_StatusBar_Height - XR_Virtual_Bottom_Height - XR_NavigationBar_Height) * 0.5):\
+((XR_Screen_Size.height - XR_StatusBar_Height - XR_NavigationBar_Height) * 0.5))
 
 #define XR_PhotoAsset_Grid_Border (XR_Screen_Size.width < 375.0 ? 2.0 : 5.0)
 
