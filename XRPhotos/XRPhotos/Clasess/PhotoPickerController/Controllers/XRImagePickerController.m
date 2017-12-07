@@ -79,9 +79,22 @@
     return picker;
 }
 
+- (void)setupPickerConfiguration {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(xr_imagePickerControllerAllowMaxSelectCount)]) {
+        _photoPicker.maxSelectPhotos = [self.delegate xr_imagePickerControllerAllowMaxSelectCount];
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(xr_imagePickerControllerSortedByAscingCreation)]) {
+        _photoPicker.isAscingForCreation = [self.delegate xr_imagePickerControllerSortedByAscingCreation];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self setupPickerConfiguration];
     
 }
 
@@ -89,9 +102,7 @@
     [super viewWillAppear:animated];
     
     if ([self isViewLoaded]) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(xr_imagePickerControllerAllowMaxSelectCount)]) {
-            _photoPicker.maxSelectPhotos = [self.delegate xr_imagePickerControllerAllowMaxSelectCount];
-        }
+        [self setupPickerConfiguration];
     }
 }
 
@@ -99,9 +110,7 @@
     [super viewDidAppear:animated];
     
     if ([self isViewLoaded]) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(xr_imagePickerControllerAllowMaxSelectCount)]) {
-            _photoPicker.maxSelectPhotos = [self.delegate xr_imagePickerControllerAllowMaxSelectCount];
-        }
+        [self setupPickerConfiguration];
     }
 }
 

@@ -49,6 +49,11 @@
 }
 
 #pragma mark - XRImagePickerControllerDelegate
+
+- (BOOL)xr_imagePickerControllerSortedByAscingCreation {
+    return NO;
+}
+
 // 返回允许选择的最大资源数
 - (NSInteger)xr_imagePickerControllerAllowMaxSelectCount {
     return 10;

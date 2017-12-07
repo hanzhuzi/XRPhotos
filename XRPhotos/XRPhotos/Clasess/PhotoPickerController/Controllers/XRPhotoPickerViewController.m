@@ -53,7 +53,7 @@
 
 #pragma mark - deinit
 - (void)dealloc {
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Initilizations
@@ -93,11 +93,18 @@
     [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
 }
 
+- (void)setIsAscingForCreation:(BOOL)isAscingForCreation {
+    if (_isAscingForCreation != isAscingForCreation) {
+        _isAscingForCreation = isAscingForCreation;
+        _phManager.isAscingForCreation = _isAscingForCreation;
+    }
+}
+
 #pragma mark - Lazy Porpertys
 - (XRPhtoManager *)phManager {
     if (!_phManager) {
         _phManager = [XRPhtoManager manager];
-        _phManager.isAscingForCreation = NO;
+        _phManager.isAscingForCreation = _isAscingForCreation;
     }
     return _phManager;
 }
@@ -118,7 +125,13 @@
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    _mainCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, XR_Screen_Size.width, XR_Screen_Size.height - XR_NavigationBar_Height - XR_PhotoPicker_BottomView_Height) collectionViewLayout:flowLayout];
+    CGFloat collectionViewHeight = XR_Screen_Size.height - XR_StatusBar_Height - XR_NavigationBar_Height - XR_PhotoPicker_BottomView_Height;
+    
+    if (iSiPhoneX) {
+        collectionViewHeight = XR_Screen_Size.height - XR_iPhoneX_StatusBar_Height - XR_NavigationBar_Height - XR_PhotoPicker_BottomView_Height - XR_Virtual_Bottom_Height;
+    }
+    
+    _mainCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, XR_Screen_Size.width, collectionViewHeight) collectionViewLayout:flowLayout];
     _mainCollection.backgroundColor = UIColorFromRGB(0xFFFFFF);
     _mainCollection.delegate = self;
     _mainCollection.dataSource = self;
@@ -147,8 +160,14 @@
 
 - (void)setupPhotoPickerBottomView {
     
-    _bottomView = [[XRPhotoPickerBottomView alloc] initWithFrame:CGRectMake(0, XR_Screen_Size.height - XR_NavigationBar_Height - XR_PhotoPicker_BottomView_Height, XR_Screen_Size.width, XR_PhotoPicker_BottomView_Height)];
-    _bottomView.backgroundColor = UIColorFromRGB(0xFFFFFF);
+    CGFloat bottomViewOriginalY = XR_Screen_Size.height - XR_PhotoPicker_BottomView_Height - XR_NavigationBar_Height - XR_StatusBar_Height;
+    
+    if (iSiPhoneX) {
+        bottomViewOriginalY = XR_Screen_Size.height - XR_PhotoPicker_BottomView_Height - XR_Virtual_Bottom_Height - XR_NavigationBar_Height - XR_iPhoneX_StatusBar_Height;
+    }
+    
+    _bottomView = [[XRPhotoPickerBottomView alloc] initWithFrame:CGRectMake(0, bottomViewOriginalY, XR_Screen_Size.width, XR_PhotoPicker_BottomView_Height)];
+    _bottomView.backgroundColor = UIColorFromRGB(0xF2F2F2);
     [self.view addSubview:_bottomView];
     
     [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
@@ -188,10 +207,10 @@
 
 - (void)setupNavigationBar {
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage backgroundImageWithColor:UIColorFromRGB(0xFFFFFF) size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage backgroundImageWithColor:[UIColor whiteColor] size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
     
     UIButton * rightItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightItemBtn.frame = CGRectMake(0, 0, 50, 44);
+    rightItemBtn.frame = CGRectMake(0, 0, 50, XR_NavigationBar_Height);
     [rightItemBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     [rightItemBtn setTitle:@"取消" forState:UIControlStateNormal];
     rightItemBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
@@ -202,8 +221,9 @@
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
     self.navigationTitleBtn = [[XRPhotoPickerNavigationTitleView alloc] init];
-    self.navigationTitleBtn.frame = CGRectMake(0, 0, XR_Screen_Size.width - 130, 44);
+    self.navigationTitleBtn.frame = CGRectMake(0, 0, XR_Screen_Size.width - 130, XR_NavigationBar_Height);
     [self.navigationTitleBtn configNavigationTitleViewWithTitle:@"所有照片"];
+    self.navigationTitleBtn.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = self.navigationTitleBtn;
     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showAlbumListWithAnimate)];
@@ -627,7 +647,14 @@
                 PHAsset * asset = ftResult.firstObject;
                 XRPhotoAssetModel * assetModel = [[XRPhotoAssetModel alloc] init];
                 assetModel.phAsset = asset;
-                [weakSelf.selectedAlbum.phAssets insertObject:assetModel atIndex:0];
+                NSInteger insertIndex = 0;
+                if (weakSelf.phManager.isAscingForCreation) {
+                    insertIndex = weakSelf.selectedAlbum.phAssets.count;
+                }
+                else {
+                    insertIndex = 0;
+                }
+                [weakSelf.selectedAlbum.phAssets insertObject:assetModel atIndex:insertIndex];
                 [weakSelf.assetArray removeAllObjects];
                 [weakSelf.assetArray addObjectsFromArray:weakSelf.selectedAlbum.phAssets];
                 dispatch_async(dispatch_get_main_queue(), ^{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0134F2BE1FD7F48D005286F4 /* UINavigationBar+Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 0134F2BD1FD7F48D005286F4 /* UINavigationBar+Track.m */; };
 		0156EC151FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156EC141FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m */; };
 		01EFBAE81FC7EE9500C2D94A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAE71FC7EE9500C2D94A /* main.m */; };
 		01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0134F2BC1FD7F48D005286F4 /* UINavigationBar+Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Track.h"; sourceTree = "<group>"; };
+		0134F2BD1FD7F48D005286F4 /* UINavigationBar+Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Track.m"; sourceTree = "<group>"; };
 		0156EC131FCCFC910093881D /* XRPhotoPickerNavigationTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerNavigationTitleView.h; sourceTree = "<group>"; };
 		0156EC141FCCFC910093881D /* XRPhotoPickerNavigationTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerNavigationTitleView.m; sourceTree = "<group>"; };
 		01EFBAE31FC7EE9500C2D94A /* XRPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +290,8 @@
 		01EFBB351FC7EF6C00C2D94A /* XRPhotosCategorys */ = {
 			isa = PBXGroup;
 			children = (
+				0134F2BC1FD7F48D005286F4 /* UINavigationBar+Track.h */,
+				0134F2BD1FD7F48D005286F4 /* UINavigationBar+Track.m */,
 				01EFBB361FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.h */,
 				01EFBB371FC7EF6C00C2D94A /* UIImage+XRPhotosCategorys.m */,
 			);
@@ -616,6 +621,7 @@
 				01EFBB441FC7EF6C00C2D94A /* XRPhotoPickerTakeCameraCell.m in Sources */,
 				01EFBB3E1FC7EF6C00C2D94A /* XRImagePickerController.m in Sources */,
 				01EFBB451FC7EF6C00C2D94A /* XRPhotoAssetModel.m in Sources */,
+				0134F2BE1FD7F48D005286F4 /* UINavigationBar+Track.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

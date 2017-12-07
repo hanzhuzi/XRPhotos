@@ -19,6 +19,7 @@ typedef void(^imagePickerDidSelectFinishedCallBack)(NSArray <XRPhotoAssetModel *
 @interface XRPhotoPickerViewController : UIViewController
 
 @property (nonatomic, assign) NSInteger maxSelectPhotos; // 最大可选择的照片数
+@property (nonatomic, assign) BOOL isAscingForCreation; // 是否按照创建日期进行升序排序 默认YES
 
 @property (nonatomic, copy) imagePickerDidCancelCallBack cancelBlock;
 @property (nonatomic, copy) imagePickerDidSelectFinishedCallBack selectFinishedBlock;

@@ -22,6 +22,10 @@
     return self;
 }
 
+- (CGSize)intrinsicContentSize {
+    return UILayoutFittingExpandedSize;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     

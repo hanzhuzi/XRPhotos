@@ -142,8 +142,14 @@
 - (CGRect)frameForToolbarAtOrientation:(UIInterfaceOrientation)orientation {
     CGFloat height = XR_PhotoPicker_BottomView_Height;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone &&
-        UIInterfaceOrientationIsLandscape(orientation)) height = XR_PhotoPicker_BottomView_Height;
-    return CGRectIntegral(CGRectMake(0, self.view.bounds.size.height - height, self.view.bounds.size.width, height));
+        UIInterfaceOrientationIsLandscape(orientation)) {
+        height = XR_PhotoPicker_BottomView_Height;
+    }
+    CGFloat toolBarOriginalY = self.view.bounds.size.height - height;
+    if (iSiPhoneX) {
+        toolBarOriginalY = self.view.bounds.size.height - XR_Virtual_Bottom_Height - height;
+    }
+    return CGRectIntegral(CGRectMake(0, toolBarOriginalY, self.view.bounds.size.width, height));
 }
 
 - (void)didStartViewingPageAtIndex:(NSUInteger)index {
