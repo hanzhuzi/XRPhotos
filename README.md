@@ -1,4 +1,5 @@
 # XRPhotos
-an iOS photo picker of PhotosKit
+An iOS Photo picker of PhotosKit
 
-![](https://github.com/hanzhuzi/XRPhotos/blob/master/XRPhotos/gif/pickerGif.gif)
+##### 跟系统的照片库一样流畅的体验
+##### 适配iOS11和iPhoneX
