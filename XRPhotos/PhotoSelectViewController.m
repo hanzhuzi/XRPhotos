@@ -7,9 +7,11 @@
 //
 
 #import "PhotoSelectViewController.h"
-#import "XRImagePickerController.h"
+#import "XRPhotoPickerViewController.h"
 
-@interface PhotoSelectViewController ()<XRImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PhotoSelectViewController ()<XRPhotoPickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (nonatomic, strong) XRPhotoPickerViewController * photoPicker;
 
 @end
 
@@ -26,9 +28,13 @@
     }];
     
     UIAlertAction * pickerSelectAction = [UIAlertAction actionWithTitle:@"打开相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        XRImagePickerController * imagePicker = [[XRImagePickerController alloc] init];
-        imagePicker.delegate = weakSelf;
-        [weakSelf presentViewController:imagePicker animated:YES completion:nil];
+        weakSelf.photoPicker = [[XRPhotoPickerViewController alloc] init];
+        weakSelf.photoPicker.delegate = weakSelf;
+        weakSelf.photoPicker.isPortrait = YES;
+        weakSelf.photoPicker.isAllowCrop = YES;
+        weakSelf.photoPicker.isAllowMultipleSelect = NO;
+        weakSelf.photoPicker.cropSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        [weakSelf.navigationController pushViewController:weakSelf.photoPicker animated:true];
     }];
     
     [alertCtrl addAction:takePhotoAction];
@@ -60,22 +66,23 @@
 }
 
 // 点击取消
-- (void)xr_imagePickerControllerDidCancel:(XRImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
+- (void)xr_imagePickerControllerDidCancel:(XRPhotoPickerViewController *)picker {
+    
+    [picker.navigationController popViewControllerAnimated:YES];
 }
 
 // 点击完成
-- (void)xr_imagePickerControllerDidFinished:(XRImagePickerController *)picker didSelectAssets:(NSArray <XRPhotoAssetModel *> *)assets {
+- (void)xr_imagePickerControllerDidFinished:(XRPhotoPickerViewController *)picker didSelectAssets:(NSArray <XRPhotoAssetModel *> *)assets {
 
 }
 
 // 选择资源数超出最大允许选择资源数时回调
-- (void)xr_imagePickerControllerDidOverrunMaxAllowSelectCount:(XRImagePickerController *)picker {
+- (void)xr_imagePickerControllerDidOverrunMaxAllowSelectCount:(XRPhotoPickerViewController *)picker {
     
 }
 
 // 拍照完成后回调
-- (void)xr_imagePickerControllerTakePhotoFinished:(XRImagePickerController *)picker finishedImage:(UIImage *)image {
+- (void)xr_imagePickerControllerTakePhotoFinished:(XRPhotoPickerViewController *)picker finishedImage:(UIImage *)image {
     
 }
 
