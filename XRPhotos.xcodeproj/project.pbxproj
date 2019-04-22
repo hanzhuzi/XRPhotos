@@ -23,6 +23,7 @@
 		0102906B2269D5780082AC1A /* XRPhotoPickerTakeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010290572269D5780082AC1A /* XRPhotoPickerTakeCameraCell.m */; };
 		0102906C2269D5780082AC1A /* UIImage+XRPhotosCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 0102905B2269D5780082AC1A /* UIImage+XRPhotosCategorys.m */; };
 		0102906D2269D5780082AC1A /* XRPhotos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0102905D2269D5780082AC1A /* XRPhotos.bundle */; };
+		0158CDD5226D9B2A006DB836 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0158CDD4226D9B2A006DB836 /* Photos.framework */; };
 		01EFBAE81FC7EE9500C2D94A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAE71FC7EE9500C2D94A /* main.m */; };
 		01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */; };
 		01EFBAEE1FC7EE9500C2D94A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAED1FC7EE9500C2D94A /* ViewController.m */; };
@@ -88,6 +89,7 @@
 		0102905B2269D5780082AC1A /* UIImage+XRPhotosCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XRPhotosCategorys.m"; sourceTree = "<group>"; };
 		0102905C2269D5780082AC1A /* XRPhotosConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotosConfigs.h; sourceTree = "<group>"; };
 		0102905D2269D5780082AC1A /* XRPhotos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XRPhotos.bundle; sourceTree = "<group>"; };
+		0158CDD4226D9B2A006DB836 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		01EFBAE31FC7EE9500C2D94A /* XRPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EFBAE71FC7EE9500C2D94A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01EFBAE91FC7EE9500C2D94A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0158CDD5226D9B2A006DB836 /* Photos.framework in Frameworks */,
 				6D82D286621165062E44AE2A /* Pods_XRPhotos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +330,7 @@
 		799B818AA61D00D861EFA74F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0158CDD4226D9B2A006DB836 /* Photos.framework */,
 				3B72508CC876C77AC8A77A33 /* Pods_XRPhotos.framework */,
 				9DA120E0A85CEE40955EEA0F /* Pods_XRPhotosTests.framework */,
 				05F22C86CE3F906EA78A5F35 /* Pods_XRPhotosUITests.framework */,
