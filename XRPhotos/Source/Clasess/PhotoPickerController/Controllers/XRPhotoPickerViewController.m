@@ -361,7 +361,7 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
@@ -402,8 +402,8 @@
         NSDictionary * dict = (NSDictionary *)notif.object;
         
         if (dict && [dict isKindOfClass:[NSDictionary class]]) {
-            NSIndexPath * indexpath = (NSIndexPath *)dict[@"indexPath"];
-            NSNumber * progressNum = (NSNumber *)dict[@"progress"];
+            NSIndexPath * indexpath = (NSIndexPath *)dict[XR_iCloud_IndexPathKey];
+            NSNumber * progressNum = (NSNumber *)dict[XR_iCloud_DownloadProgressKey];
             
             if (indexpath && (indexpath.item >= 0 && indexpath.item < [self.mainCollection numberOfItemsInSection:0])) {
                 XRPhotoPickerAssetCell * cell = (XRPhotoPickerAssetCell *)[self.mainCollection cellForItemAtIndexPath:indexpath];
@@ -468,7 +468,12 @@
     __weak __typeof(self) weakSelf = self;
     
     if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.margin = 10;
+        hud.cornerRadius = 5;
+        hud.activityIndicatorColor = [UIColor grayColor];
+        hud.color = [UIColor whiteColor];
+        
         [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
             [weakSelf.phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:weakSelf.targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -521,7 +526,12 @@
                 // 用户首次授权时点击了 '好'，开始请求数据
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // 获取相册
-                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.margin = 10;
+                    hud.cornerRadius = 5;
+                    hud.activityIndicatorColor = [UIColor grayColor];
+                    hud.color = [UIColor whiteColor];
+                    
                     [self.phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:weakSelf.targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];

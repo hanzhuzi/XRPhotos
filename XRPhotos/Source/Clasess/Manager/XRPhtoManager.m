@@ -225,9 +225,8 @@
             
             NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithCapacity:5];
             NSNumber * progressNum = [NSNumber numberWithDouble:progress];
-            [dict setValue:progressNum forKey:@"progress"];
-            [dict setValue:phModel.phAsset.localIdentifier forKey:@"fitsBigIdentifierKey"];
-            [dict setValue:phModel.indexPath forKey:@"indexPath"];
+            [dict setValue:progressNum forKey:XR_iCloud_DownloadProgressKey];
+            [dict setValue:phModel.indexPath forKey:XR_iCloud_IndexPathKey];
             
             phModel.isDownloadingFromiCloud = YES;
             phModel.downloadProgress = progressNum;
@@ -277,9 +276,8 @@
             
             NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithCapacity:5];
             NSNumber * progressNum = [NSNumber numberWithDouble:progress];
-            [dict setValue:progressNum forKey:@"progress"];
-            [dict setValue:phModel.phAsset.localIdentifier forKey:@"fitsBigIdentifierKey"];
-            [dict setValue:phModel.indexPath forKey:@"indexPath"];
+            [dict setValue:progressNum forKey:XR_iCloud_DownloadProgressKey];
+            [dict setValue:phModel.indexPath forKey:XR_iCloud_IndexPathKey];
             
             phModel.isDownloadingFromiCloud = YES;
             phModel.downloadProgress = progressNum;
@@ -340,9 +338,8 @@
             
             NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithCapacity:5];
             NSNumber * progressNum = [NSNumber numberWithDouble:progress];
-            [dict setValue:progressNum forKey:@"progress"];
-            [dict setValue:phModel.phAsset.localIdentifier forKey:@"fitsBigIdentifierKey"];
-            [dict setValue:phModel.indexPath forKey:@"indexPath"];
+            [dict setValue:progressNum forKey:XR_iCloud_DownloadProgressKey];
+            [dict setValue:phModel.indexPath forKey:XR_iCloud_IndexPathKey];
             
             phModel.isDownloadingFromiCloud = YES;
             phModel.downloadProgress = progressNum;
@@ -407,9 +404,8 @@
             
             NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithCapacity:5];
             NSNumber * progressNum = [NSNumber numberWithDouble:progress];
-            [dict setValue:progressNum forKey:@"progress"];
-            [dict setValue:phModel.phAsset.localIdentifier forKey:@"fitsBigIdentifierKey"];
-            [dict setValue:phModel.indexPath forKey:@"indexPath"];
+            [dict setValue:progressNum forKey:XR_iCloud_DownloadProgressKey];
+            [dict setValue:phModel.indexPath forKey:XR_iCloud_IndexPathKey];
             
             phModel.isDownloadingFromiCloud = YES;
             phModel.downloadProgress = progressNum;

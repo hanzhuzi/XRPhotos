@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photo Select View Controller-->
+        <!--XRPhotos-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PhotoSelectViewController" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3F-yW-sqc">
-                                <rect key="frame" x="152.5" y="311.5" width="70" height="44"/>
+                                <rect key="frame" x="152.5" y="164" width="70" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="1SM-Rx-kXx"/>
                                     <constraint firstAttribute="height" constant="44" id="ODZ-sS-6NO"/>
@@ -33,18 +33,30 @@
                                     <action selector="selectPhotoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4f3-LU-XbW"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Y5-Yb-0c5">
+                                <rect key="frame" x="41" y="228" width="293" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="JGr-D8-P81"/>
+                                    <constraint firstAttribute="width" constant="293" id="idY-eW-O0U"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="4Y5-Yb-0c5" firstAttribute="top" secondItem="Z3F-yW-sqc" secondAttribute="bottom" constant="20" id="G8O-0z-gYV"/>
                             <constraint firstItem="Z3F-yW-sqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pxu-wN-Oar"/>
-                            <constraint firstItem="Z3F-yW-sqc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pJv-qv-PnU"/>
+                            <constraint firstItem="4Y5-Yb-0c5" firstAttribute="centerX" secondItem="Z3F-yW-sqc" secondAttribute="centerX" id="XrW-PM-N1F"/>
+                            <constraint firstItem="Z3F-yW-sqc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="vnZ-PH-ugK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="RHW-oh-Rki"/>
+                    <navigationItem key="navigationItem" title="XRPhotos" id="RHW-oh-Rki"/>
+                    <connections>
+                        <outlet property="imgVw" destination="4Y5-Yb-0c5" id="Rei-b8-2ld"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="510" y="141"/>
+            <point key="canvasLocation" x="132" y="72"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8K9-BM-LUL">
@@ -62,7 +74,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpM-Zg-tld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="141"/>
+            <point key="canvasLocation" x="-516" y="72"/>
         </scene>
     </scenes>
 </document>

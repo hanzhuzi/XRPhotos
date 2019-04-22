@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define XR_iCloud_DownloadProgressKey @"XR_iCloud_DownloadProgressKey"
+#define XR_iCloud_IndexPathKey @"XR_iCloud_IndexPathKey"
+
 @class XRPhotoAlbumModel;
 @class XRPhotoAssetModel;
 @class PHCachingImageManager;

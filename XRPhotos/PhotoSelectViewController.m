@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) XRPhotoPickerViewController * photoPicker;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgVw;
+
 @end
 
 @implementation PhotoSelectViewController
@@ -33,6 +35,7 @@
         weakSelf.photoPicker.isPortrait = YES;
         weakSelf.photoPicker.isAllowCrop = YES;
         weakSelf.photoPicker.isAllowMultipleSelect = NO;
+        weakSelf.photoPicker.isSupportCamera = YES;
         weakSelf.photoPicker.cropSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
         [weakSelf.navigationController pushViewController:weakSelf.photoPicker animated:true];
     }];
@@ -49,40 +52,57 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - XRImagePickerControllerDelegate
-
-- (BOOL)xr_imagePickerControllerSortedByAscingCreation {
-    return NO;
-}
-
-// 返回允许选择的最大资源数
-- (NSInteger)xr_imagePickerControllerAllowMaxSelectCount {
-    return 10;
-}
+#pragma mark - XRPhotoPickerControllerDelegate
 
 // 点击取消
-- (void)xr_imagePickerControllerDidCancel:(XRPhotoPickerViewController *)picker {
+- (void)xr_photoPickerControllerDidCancel:(XRPhotoPickerViewController *)picker {
     
     [picker.navigationController popViewControllerAnimated:YES];
 }
 
-// 点击完成
-- (void)xr_imagePickerControllerDidFinished:(XRPhotoPickerViewController *)picker didSelectAssets:(NSArray <XRPhotoAssetModel *> *)assets {
+// 多选时完成回调
+- (void)xr_photoPickerControllerDidFinished:(XRPhotoPickerViewController *)picker didSelectAssets:(NSArray<XRPhotoAssetModel *> *)assets {
 
+    [picker.navigationController popToViewController:self animated:true];
+    
+    for (XRPhotoAssetModel * assetModel in assets) {
+        
+    }
 }
 
 // 选择资源数超出最大允许选择资源数时回调
-- (void)xr_imagePickerControllerDidOverrunMaxAllowSelectCount:(XRPhotoPickerViewController *)picker {
+- (void)xr_photoPickerControllerDidOverrunMaxAllowSelectCount:(XRPhotoPickerViewController *)picker {
+    
+    NSLog(@"选择超过了最大选择数量");
+}
+
+// 单选时完成回调
+- (void)xr_photoPickerController:(XRPhotoPickerViewController *)picker didSelectAssetWithOriginalImage:(UIImage *)originalImaage {
+    
+    [picker.navigationController popToViewController:self animated:true];
+    
     
 }
 
-// 拍照完成后回调
-- (void)xr_imagePickerControllerTakePhotoFinished:(XRPhotoPickerViewController *)picker finishedImage:(UIImage *)image {
+// 单选时裁剪图片完成回调
+- (void)xr_photoPickerController:(XRPhotoPickerViewController *)picker didSelectAssetWithCropImage:(UIImage *)cropImaage {
+    
+    [picker.navigationController popToRootViewControllerAnimated:true];
+    
+    self.imgVw.image = cropImaage;
     
 }
 
