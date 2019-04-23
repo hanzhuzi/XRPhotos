@@ -9,15 +9,19 @@
 Pod::Spec.new do |s|
 
   s.name         = "XRPhotos"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Based on a ` PhotosKit ` photo selection framework."
   s.homepage     = "https://github.com/hanzhuzi/XRPhotos"
-  s.license    = { :type => 'MIT', :file => 'LICENSE'}
-  s.author             = { "hanzhuzi" => "violet_buddhist@163.com" }
+  s.license      = 'MIT'
+  s.author       = { "hanzhuzi" => "violet_buddhist@163.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/hanzhuzi/XRPhotos.git", :tag => "#{s.version}" }
   s.source_files  = "Source", "XRPhotos/Source/**/*.{h,m}"
-  s.resources = "XRPhotos/Source/XRPhotos.bundle/*.png"
+  s.resource_bundles = {
+      'XRPhotos' => ['XRPhotos/Source/XRPhotos.bundle/*.png']
+  }
+  
+  s.weak_frameworks = 'Photos'
   s.requires_arc = true
   
   s.dependency "MWPhotoBrowser", "~> 2.1.2"

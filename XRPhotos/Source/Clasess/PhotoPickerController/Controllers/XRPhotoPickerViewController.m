@@ -274,7 +274,7 @@
     [self.view addSubview:_customNavigationBar];
     
     [_customNavigationBar.leftButton setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
-    [_customNavigationBar.leftButton setImage:[UIImage imageForResouceName:@"xr_photo_nav_back"] forState:UIControlStateNormal];
+    [_customNavigationBar.leftButton setImage:[UIImage imageForResourcePath:@"XRPhotos.bundle/xr_photo_nav_back" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] forState:UIControlStateNormal];
     __weak __typeof(self) weakSelf = self;
     _customNavigationBar.leftBtnClickBlock = ^{
         [weakSelf.navigationController popViewControllerAnimated:YES];

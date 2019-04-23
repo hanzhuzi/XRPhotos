@@ -28,10 +28,8 @@
 #import "XRPhotosConfigs.h"
 
 @interface PhotoAlbumListViewController ()<UITableViewDelegate, UITableViewDataSource, PHPhotoLibraryChangeObserver>
-{
-    XRPhtoManager * _phManager;
-}
 
+@property (nonatomic, strong) XRPhtoManager * phManager;
 @property (nonatomic, strong) NSArray * albums;
 @property (nonatomic, strong) UITableView * mainTableView;
 
@@ -94,7 +92,7 @@
                 // 用户首次授权时点击了 '好'，开始请求数据
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // 获取相册
-                    [_phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:_targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
+                    [weakSelf.phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:weakSelf.targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             weakSelf.albums = albumList;
                             [weakSelf.mainTableView reloadData];
@@ -143,11 +141,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row < _albums.count) {
-        XRPhotoAlbumModel * album = _albums[indexPath.row];
-//        XRImagePickerController * imagePicker = [[XRImagePickerController alloc] initWithAlbumModel:album];
-//        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
 }
 
 #pragma mark - PHPhotoLibraryChangeObserver

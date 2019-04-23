@@ -24,5 +24,6 @@
 @interface UIImage (XRPhotosCategorys)
 + (UIImage *)imageForResouceName:(NSString *)imageName;
 - (UIImage *)fixOrientation;
++ (UIImage *)imageForResourcePath:(NSString *)path ofType:(NSString *)type inBundle:(NSBundle *)bundle;
 + (UIImage *)backgroundImageWithColor:(UIColor *)backgroundColor size:(CGSize)size;
 @end

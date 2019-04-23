@@ -26,7 +26,11 @@
 + (UIImage *)imageForResouceName:(NSString *)imageName {
     
     NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"XRPhotos" ofType:@"bundle"];
-    return [[UIImage alloc] initWithContentsOfFile:[bundlePath stringByAppendingPathComponent:imageName]];;
+    return [[UIImage alloc] initWithContentsOfFile:[bundlePath stringByAppendingPathComponent:imageName]];
+}
+
++ (UIImage *)imageForResourcePath:(NSString *)path ofType:(NSString *)type inBundle:(NSBundle *)bundle {
+    return [UIImage imageWithContentsOfFile:[bundle pathForResource:path ofType:type]];
 }
 
 + (UIImage *)backgroundImageWithColor:(UIColor *)backgroundColor size:(CGSize)size {
