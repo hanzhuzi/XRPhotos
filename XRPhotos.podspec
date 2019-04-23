@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XRPhotos"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "Based on a ` PhotosKit ` photo selection framework."
   s.homepage     = "https://github.com/hanzhuzi/XRPhotos"
   s.license    = { :type => 'MIT', :file => 'LICENSE'}
