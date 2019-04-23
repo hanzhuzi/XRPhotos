@@ -1,6 +1,6 @@
 # XRPhotos
-#### 基于PhotosKit框架的照片选择器
-#### 跟系统的照片库一样流畅的体验
+
+Based on a ` PhotosKit ` photo selection framework. 跟系统照片库一样流畅的照片选择库。
 
 ## How to Use `XRPhotos`(如何安装？)
 
