@@ -6,7 +6,7 @@ Based on a ` PhotosKit ` photo selection framework. 跟系统照片库一样流�
 
 ### From CocoaPods
 
-Add `pod  'XRPhotos` to your Podfile.
+Add `pod XRPhotos` to your Podfile.
 * pod install
 * #import <XRPhotos/XRPhotos.h>
   
