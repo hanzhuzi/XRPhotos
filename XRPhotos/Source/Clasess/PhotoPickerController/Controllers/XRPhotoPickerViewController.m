@@ -274,7 +274,7 @@
     [self.view addSubview:_customNavigationBar];
     
     [_customNavigationBar.leftButton setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
-    [_customNavigationBar.leftButton setImage:[UIImage imageForResourcePath:@"XRPhotos.bundle/xr_photo_nav_back" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] forState:UIControlStateNormal];
+    [_customNavigationBar.leftButton setImage:[UIImage imageForResourceName:@"xr_photo_nav_back" selfClass:[self class]] forState:UIControlStateNormal];
     __weak __typeof(self) weakSelf = self;
     _customNavigationBar.leftBtnClickBlock = ^{
         [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -484,8 +484,8 @@
         MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.margin = 10;
         hud.cornerRadius = 5;
-        hud.activityIndicatorColor = [UIColor grayColor];
-        hud.color = [UIColor whiteColor];
+        hud.activityIndicatorColor = UIColorFromRGB(0xAAAAAA);
+        hud.color = UIColorFromRGB(0xF2F2F2);
         
         [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
             [weakSelf.phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:weakSelf.targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
@@ -542,8 +542,8 @@
                     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     hud.margin = 10;
                     hud.cornerRadius = 5;
-                    hud.activityIndicatorColor = [UIColor grayColor];
-                    hud.color = [UIColor whiteColor];
+                    hud.activityIndicatorColor = UIColorFromRGB(0xAAAAAA);
+                    hud.color = UIColorFromRGB(0xF2F2F2);
                     
                     [self.phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:weakSelf.targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
                         dispatch_async(dispatch_get_main_queue(), ^{

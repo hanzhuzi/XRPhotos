@@ -28,7 +28,7 @@
     if (self = [super initWithFrame:frame]) {
         
         _cameraImageView = [[UIImageView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.frame) - 26) * 0.5, (CGRectGetHeight(self.frame) - 23) * 0.5, 26, 23)];
-        _cameraImageView.image = [UIImage imageForResourcePath:@"XRPhotos.bundle/photo_album_asset_camera" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]];
+        _cameraImageView.image = [UIImage imageForResourceName:@"photo_album_asset_camera" selfClass:[self class]];
         [self addSubview:_cameraImageView];
     }
     return self;

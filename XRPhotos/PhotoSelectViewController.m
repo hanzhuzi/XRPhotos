@@ -34,7 +34,7 @@
         weakSelf.photoPicker.delegate = weakSelf;
         weakSelf.photoPicker.isPortrait = YES;
         weakSelf.photoPicker.isAllowCrop = YES;
-        weakSelf.photoPicker.isAllowMultipleSelect = YES;
+        weakSelf.photoPicker.isAllowMultipleSelect = NO;
         weakSelf.photoPicker.isSupportCamera = YES;
         weakSelf.photoPicker.cropSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
         [weakSelf.navigationController pushViewController:weakSelf.photoPicker animated:true];

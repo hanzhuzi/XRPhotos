@@ -23,14 +23,14 @@
 
 @implementation UIImage (XRPhotosCategorys)
 
-+ (UIImage *)imageForResouceName:(NSString *)imageName {
++ (UIImage *)imageForResourceName:(NSString *)imageName selfClass:(Class)selfClass {
     
-    NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"XRPhotos" ofType:@"bundle"];
-    return [[UIImage alloc] initWithContentsOfFile:[bundlePath stringByAppendingPathComponent:imageName]];
-}
-
-+ (UIImage *)imageForResourcePath:(NSString *)path ofType:(NSString *)type inBundle:(NSBundle *)bundle {
-    return [UIImage imageWithContentsOfFile:[bundle pathForResource:path ofType:type]];
+    NSBundle * frameBundle = [NSBundle bundleForClass:selfClass];
+    NSURL * bundleUrl = [[frameBundle resourceURL] URLByAppendingPathComponent:@"XRPhotos.bundle"];
+    NSBundle * resourceBundle = [NSBundle bundleWithURL:bundleUrl];
+    UIImage * resImage = [UIImage imageNamed:imageName inBundle:resourceBundle compatibleWithTraitCollection:nil];
+    
+    return resImage;
 }
 
 + (UIImage *)backgroundImageWithColor:(UIColor *)backgroundColor size:(CGSize)size {

@@ -86,8 +86,8 @@
     
     _rightItemBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, XR_PhotoAsset_GridCell_SelectButtonWidth, XR_PhotoAsset_GridCell_SelectButtonWidth)];
     
-    [_rightItemBtn setImage:[UIImage imageForResourcePath:@"XRPhotos.bundle/photo_album_asset_select" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] forState:UIControlStateNormal];
-    [_rightItemBtn setImage:[UIImage imageForResourcePath:@"XRPhotos.bundle/photo_album_asset_selected" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] forState:UIControlStateSelected];
+    [_rightItemBtn setImage:[UIImage imageForResourceName:@"photo_album_asset_select" selfClass:[self class]] forState:UIControlStateNormal];
+    [_rightItemBtn setImage:[UIImage imageForResourceName:@"photo_album_asset_selected" selfClass:[self class]] forState:UIControlStateSelected];
     [_rightItemBtn addTarget:self action:@selector(navigationRightItemAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(navigationLeftItemAction)];

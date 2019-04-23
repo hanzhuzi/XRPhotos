@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0158CDD5226D9B2A006DB836 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0158CDD4226D9B2A006DB836 /* Photos.framework */; };
-		01B1E8B2226EE6960068D824 /* XRPhtoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E88B226EE6960068D824 /* XRPhtoManager.m */; };
-		01B1E8B3226EE6960068D824 /* PhotoAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E88E226EE6960068D824 /* PhotoAlbumListViewController.m */; };
-		01B1E8B4226EE6960068D824 /* XRPhotoAlbumListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E890226EE6960068D824 /* XRPhotoAlbumListCell.m */; };
-		01B1E8B5226EE6960068D824 /* XRPhotoAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E892226EE6960068D824 /* XRPhotoAlbumModel.m */; };
-		01B1E8B6226EE6960068D824 /* QKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E895226EE6960068D824 /* QKPhotoBrowser.m */; };
-		01B1E8B7226EE6960068D824 /* XRPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E899226EE6960068D824 /* XRPhotoBrowser.m */; };
-		01B1E8B8226EE6960068D824 /* XRPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E89B226EE6960068D824 /* XRPhotoPickerViewController.m */; };
-		01B1E8B9226EE6960068D824 /* XRPhotoAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E89E226EE6960068D824 /* XRPhotoAssetModel.m */; };
-		01B1E8BA226EE6960068D824 /* XRPhotoAlbumListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8A1226EE6960068D824 /* XRPhotoAlbumListView.m */; };
-		01B1E8BB226EE6960068D824 /* XRPhotoPickerAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8A3226EE6960068D824 /* XRPhotoPickerAssetCell.m */; };
-		01B1E8BC226EE6960068D824 /* XRPhotoPickerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8A5226EE6960068D824 /* XRPhotoPickerBottomView.m */; };
-		01B1E8BD226EE6960068D824 /* XRPhotoPickerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8A7226EE6960068D824 /* XRPhotoPickerNavigationBar.m */; };
-		01B1E8BE226EE6960068D824 /* XRPhotoPickerNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8A9226EE6960068D824 /* XRPhotoPickerNavigationTitleView.m */; };
-		01B1E8BF226EE6960068D824 /* XRPhotoPickerTakeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8AB226EE6960068D824 /* XRPhotoPickerTakeCameraCell.m */; };
-		01B1E8C0226EE6960068D824 /* UIImage+XRPhotosCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8AF226EE6960068D824 /* UIImage+XRPhotosCategorys.m */; };
-		01B1E8C1226EE6960068D824 /* XRPhotos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01B1E8B1226EE6960068D824 /* XRPhotos.bundle */; };
+		01B1E8ED226F14960068D824 /* XRPhtoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8C6226F14960068D824 /* XRPhtoManager.m */; };
+		01B1E8EE226F14960068D824 /* PhotoAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8C9226F14960068D824 /* PhotoAlbumListViewController.m */; };
+		01B1E8EF226F14960068D824 /* XRPhotoAlbumListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8CB226F14960068D824 /* XRPhotoAlbumListCell.m */; };
+		01B1E8F0226F14960068D824 /* XRPhotoAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8CD226F14960068D824 /* XRPhotoAlbumModel.m */; };
+		01B1E8F1226F14960068D824 /* QKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D0226F14960068D824 /* QKPhotoBrowser.m */; };
+		01B1E8F2226F14960068D824 /* XRPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D4226F14960068D824 /* XRPhotoBrowser.m */; };
+		01B1E8F3226F14960068D824 /* XRPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D6226F14960068D824 /* XRPhotoPickerViewController.m */; };
+		01B1E8F4226F14960068D824 /* XRPhotoAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D9226F14960068D824 /* XRPhotoAssetModel.m */; };
+		01B1E8F5226F14960068D824 /* XRPhotoAlbumListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8DC226F14960068D824 /* XRPhotoAlbumListView.m */; };
+		01B1E8F6226F14960068D824 /* XRPhotoPickerAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8DE226F14960068D824 /* XRPhotoPickerAssetCell.m */; };
+		01B1E8F7226F14960068D824 /* XRPhotoPickerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8E0226F14960068D824 /* XRPhotoPickerBottomView.m */; };
+		01B1E8F8226F14960068D824 /* XRPhotoPickerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8E2226F14960068D824 /* XRPhotoPickerNavigationBar.m */; };
+		01B1E8F9226F14960068D824 /* XRPhotoPickerNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8E4226F14960068D824 /* XRPhotoPickerNavigationTitleView.m */; };
+		01B1E8FA226F14960068D824 /* XRPhotoPickerTakeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8E6226F14960068D824 /* XRPhotoPickerTakeCameraCell.m */; };
+		01B1E8FB226F14960068D824 /* UIImage+XRPhotosCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8EA226F14960068D824 /* UIImage+XRPhotosCategorys.m */; };
+		01B1E8FC226F14960068D824 /* XRPhotos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01B1E8EC226F14960068D824 /* XRPhotos.bundle */; };
 		01EFBAE81FC7EE9500C2D94A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAE71FC7EE9500C2D94A /* main.m */; };
 		01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */; };
 		01EFBAEE1FC7EE9500C2D94A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EFBAED1FC7EE9500C2D94A /* ViewController.m */; };
@@ -57,39 +57,39 @@
 
 /* Begin PBXFileReference section */
 		0158CDD4226D9B2A006DB836 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		01B1E88A226EE6960068D824 /* XRPhtoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhtoManager.h; sourceTree = "<group>"; };
-		01B1E88B226EE6960068D824 /* XRPhtoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhtoManager.m; sourceTree = "<group>"; };
-		01B1E88D226EE6960068D824 /* PhotoAlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbumListViewController.h; sourceTree = "<group>"; };
-		01B1E88E226EE6960068D824 /* PhotoAlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbumListViewController.m; sourceTree = "<group>"; };
-		01B1E88F226EE6960068D824 /* XRPhotoAlbumListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumListCell.h; sourceTree = "<group>"; };
-		01B1E890226EE6960068D824 /* XRPhotoAlbumListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumListCell.m; sourceTree = "<group>"; };
-		01B1E891226EE6960068D824 /* XRPhotoAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumModel.h; sourceTree = "<group>"; };
-		01B1E892226EE6960068D824 /* XRPhotoAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumModel.m; sourceTree = "<group>"; };
-		01B1E894226EE6960068D824 /* QKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPhotoBrowser.h; sourceTree = "<group>"; };
-		01B1E895226EE6960068D824 /* QKPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPhotoBrowser.m; sourceTree = "<group>"; };
-		01B1E898226EE6960068D824 /* XRPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoBrowser.h; sourceTree = "<group>"; };
-		01B1E899226EE6960068D824 /* XRPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoBrowser.m; sourceTree = "<group>"; };
-		01B1E89A226EE6960068D824 /* XRPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerViewController.h; sourceTree = "<group>"; };
-		01B1E89B226EE6960068D824 /* XRPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerViewController.m; sourceTree = "<group>"; };
-		01B1E89D226EE6960068D824 /* XRPhotoAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAssetModel.h; sourceTree = "<group>"; };
-		01B1E89E226EE6960068D824 /* XRPhotoAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAssetModel.m; sourceTree = "<group>"; };
-		01B1E8A0226EE6960068D824 /* XRPhotoAlbumListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumListView.h; sourceTree = "<group>"; };
-		01B1E8A1226EE6960068D824 /* XRPhotoAlbumListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumListView.m; sourceTree = "<group>"; };
-		01B1E8A2226EE6960068D824 /* XRPhotoPickerAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerAssetCell.h; sourceTree = "<group>"; };
-		01B1E8A3226EE6960068D824 /* XRPhotoPickerAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerAssetCell.m; sourceTree = "<group>"; };
-		01B1E8A4226EE6960068D824 /* XRPhotoPickerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerBottomView.h; sourceTree = "<group>"; };
-		01B1E8A5226EE6960068D824 /* XRPhotoPickerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerBottomView.m; sourceTree = "<group>"; };
-		01B1E8A6226EE6960068D824 /* XRPhotoPickerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerNavigationBar.h; sourceTree = "<group>"; };
-		01B1E8A7226EE6960068D824 /* XRPhotoPickerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerNavigationBar.m; sourceTree = "<group>"; };
-		01B1E8A8226EE6960068D824 /* XRPhotoPickerNavigationTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerNavigationTitleView.h; sourceTree = "<group>"; };
-		01B1E8A9226EE6960068D824 /* XRPhotoPickerNavigationTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerNavigationTitleView.m; sourceTree = "<group>"; };
-		01B1E8AA226EE6960068D824 /* XRPhotoPickerTakeCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerTakeCameraCell.h; sourceTree = "<group>"; };
-		01B1E8AB226EE6960068D824 /* XRPhotoPickerTakeCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerTakeCameraCell.m; sourceTree = "<group>"; };
-		01B1E8AC226EE6960068D824 /* XRPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotos.h; sourceTree = "<group>"; };
-		01B1E8AE226EE6960068D824 /* UIImage+XRPhotosCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XRPhotosCategorys.h"; sourceTree = "<group>"; };
-		01B1E8AF226EE6960068D824 /* UIImage+XRPhotosCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XRPhotosCategorys.m"; sourceTree = "<group>"; };
-		01B1E8B0226EE6960068D824 /* XRPhotosConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotosConfigs.h; sourceTree = "<group>"; };
-		01B1E8B1226EE6960068D824 /* XRPhotos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XRPhotos.bundle; sourceTree = "<group>"; };
+		01B1E8C5226F14960068D824 /* XRPhtoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhtoManager.h; sourceTree = "<group>"; };
+		01B1E8C6226F14960068D824 /* XRPhtoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhtoManager.m; sourceTree = "<group>"; };
+		01B1E8C8226F14960068D824 /* PhotoAlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbumListViewController.h; sourceTree = "<group>"; };
+		01B1E8C9226F14960068D824 /* PhotoAlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbumListViewController.m; sourceTree = "<group>"; };
+		01B1E8CA226F14960068D824 /* XRPhotoAlbumListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumListCell.h; sourceTree = "<group>"; };
+		01B1E8CB226F14960068D824 /* XRPhotoAlbumListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumListCell.m; sourceTree = "<group>"; };
+		01B1E8CC226F14960068D824 /* XRPhotoAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumModel.h; sourceTree = "<group>"; };
+		01B1E8CD226F14960068D824 /* XRPhotoAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumModel.m; sourceTree = "<group>"; };
+		01B1E8CF226F14960068D824 /* QKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPhotoBrowser.h; sourceTree = "<group>"; };
+		01B1E8D0226F14960068D824 /* QKPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPhotoBrowser.m; sourceTree = "<group>"; };
+		01B1E8D3226F14960068D824 /* XRPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoBrowser.h; sourceTree = "<group>"; };
+		01B1E8D4226F14960068D824 /* XRPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoBrowser.m; sourceTree = "<group>"; };
+		01B1E8D5226F14960068D824 /* XRPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerViewController.h; sourceTree = "<group>"; };
+		01B1E8D6226F14960068D824 /* XRPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerViewController.m; sourceTree = "<group>"; };
+		01B1E8D8226F14960068D824 /* XRPhotoAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAssetModel.h; sourceTree = "<group>"; };
+		01B1E8D9226F14960068D824 /* XRPhotoAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAssetModel.m; sourceTree = "<group>"; };
+		01B1E8DB226F14960068D824 /* XRPhotoAlbumListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumListView.h; sourceTree = "<group>"; };
+		01B1E8DC226F14960068D824 /* XRPhotoAlbumListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumListView.m; sourceTree = "<group>"; };
+		01B1E8DD226F14960068D824 /* XRPhotoPickerAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerAssetCell.h; sourceTree = "<group>"; };
+		01B1E8DE226F14960068D824 /* XRPhotoPickerAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerAssetCell.m; sourceTree = "<group>"; };
+		01B1E8DF226F14960068D824 /* XRPhotoPickerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerBottomView.h; sourceTree = "<group>"; };
+		01B1E8E0226F14960068D824 /* XRPhotoPickerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerBottomView.m; sourceTree = "<group>"; };
+		01B1E8E1226F14960068D824 /* XRPhotoPickerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerNavigationBar.h; sourceTree = "<group>"; };
+		01B1E8E2226F14960068D824 /* XRPhotoPickerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerNavigationBar.m; sourceTree = "<group>"; };
+		01B1E8E3226F14960068D824 /* XRPhotoPickerNavigationTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerNavigationTitleView.h; sourceTree = "<group>"; };
+		01B1E8E4226F14960068D824 /* XRPhotoPickerNavigationTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerNavigationTitleView.m; sourceTree = "<group>"; };
+		01B1E8E5226F14960068D824 /* XRPhotoPickerTakeCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerTakeCameraCell.h; sourceTree = "<group>"; };
+		01B1E8E6226F14960068D824 /* XRPhotoPickerTakeCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerTakeCameraCell.m; sourceTree = "<group>"; };
+		01B1E8E7226F14960068D824 /* XRPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotos.h; sourceTree = "<group>"; };
+		01B1E8E9226F14960068D824 /* UIImage+XRPhotosCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XRPhotosCategorys.h"; sourceTree = "<group>"; };
+		01B1E8EA226F14960068D824 /* UIImage+XRPhotosCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XRPhotosCategorys.m"; sourceTree = "<group>"; };
+		01B1E8EB226F14960068D824 /* XRPhotosConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotosConfigs.h; sourceTree = "<group>"; };
+		01B1E8EC226F14960068D824 /* XRPhotos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XRPhotos.bundle; sourceTree = "<group>"; };
 		01EFBAE31FC7EE9500C2D94A /* XRPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EFBAE71FC7EE9500C2D94A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01EFBAE91FC7EE9500C2D94A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -148,114 +148,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01B1E887226EE6960068D824 /* Source */ = {
+		01B1E8C2226F14960068D824 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E888226EE6960068D824 /* Clasess */,
-				01B1E8B1226EE6960068D824 /* XRPhotos.bundle */,
+				01B1E8C3226F14960068D824 /* Clasess */,
+				01B1E8EC226F14960068D824 /* XRPhotos.bundle */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		01B1E888226EE6960068D824 /* Clasess */ = {
+		01B1E8C3226F14960068D824 /* Clasess */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E889226EE6960068D824 /* Manager */,
-				01B1E88C226EE6960068D824 /* PhotoAlbum */,
-				01B1E893226EE6960068D824 /* PhotoBrower */,
-				01B1E896226EE6960068D824 /* PhotoPickerController */,
-				01B1E8AC226EE6960068D824 /* XRPhotos.h */,
-				01B1E8AD226EE6960068D824 /* XRPhotosCategorys */,
-				01B1E8B0226EE6960068D824 /* XRPhotosConfigs.h */,
+				01B1E8C4226F14960068D824 /* Manager */,
+				01B1E8C7226F14960068D824 /* PhotoAlbum */,
+				01B1E8CE226F14960068D824 /* PhotoBrower */,
+				01B1E8D1226F14960068D824 /* PhotoPickerController */,
+				01B1E8E7226F14960068D824 /* XRPhotos.h */,
+				01B1E8E8226F14960068D824 /* XRPhotosCategorys */,
+				01B1E8EB226F14960068D824 /* XRPhotosConfigs.h */,
 			);
 			path = Clasess;
 			sourceTree = "<group>";
 		};
-		01B1E889226EE6960068D824 /* Manager */ = {
+		01B1E8C4226F14960068D824 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E88A226EE6960068D824 /* XRPhtoManager.h */,
-				01B1E88B226EE6960068D824 /* XRPhtoManager.m */,
+				01B1E8C5226F14960068D824 /* XRPhtoManager.h */,
+				01B1E8C6226F14960068D824 /* XRPhtoManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		01B1E88C226EE6960068D824 /* PhotoAlbum */ = {
+		01B1E8C7226F14960068D824 /* PhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E88D226EE6960068D824 /* PhotoAlbumListViewController.h */,
-				01B1E88E226EE6960068D824 /* PhotoAlbumListViewController.m */,
-				01B1E88F226EE6960068D824 /* XRPhotoAlbumListCell.h */,
-				01B1E890226EE6960068D824 /* XRPhotoAlbumListCell.m */,
-				01B1E891226EE6960068D824 /* XRPhotoAlbumModel.h */,
-				01B1E892226EE6960068D824 /* XRPhotoAlbumModel.m */,
+				01B1E8C8226F14960068D824 /* PhotoAlbumListViewController.h */,
+				01B1E8C9226F14960068D824 /* PhotoAlbumListViewController.m */,
+				01B1E8CA226F14960068D824 /* XRPhotoAlbumListCell.h */,
+				01B1E8CB226F14960068D824 /* XRPhotoAlbumListCell.m */,
+				01B1E8CC226F14960068D824 /* XRPhotoAlbumModel.h */,
+				01B1E8CD226F14960068D824 /* XRPhotoAlbumModel.m */,
 			);
 			path = PhotoAlbum;
 			sourceTree = "<group>";
 		};
-		01B1E893226EE6960068D824 /* PhotoBrower */ = {
+		01B1E8CE226F14960068D824 /* PhotoBrower */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E894226EE6960068D824 /* QKPhotoBrowser.h */,
-				01B1E895226EE6960068D824 /* QKPhotoBrowser.m */,
+				01B1E8CF226F14960068D824 /* QKPhotoBrowser.h */,
+				01B1E8D0226F14960068D824 /* QKPhotoBrowser.m */,
 			);
 			path = PhotoBrower;
 			sourceTree = "<group>";
 		};
-		01B1E896226EE6960068D824 /* PhotoPickerController */ = {
+		01B1E8D1226F14960068D824 /* PhotoPickerController */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E897226EE6960068D824 /* Controllers */,
-				01B1E89C226EE6960068D824 /* Models */,
-				01B1E89F226EE6960068D824 /* Views */,
+				01B1E8D2226F14960068D824 /* Controllers */,
+				01B1E8D7226F14960068D824 /* Models */,
+				01B1E8DA226F14960068D824 /* Views */,
 			);
 			path = PhotoPickerController;
 			sourceTree = "<group>";
 		};
-		01B1E897226EE6960068D824 /* Controllers */ = {
+		01B1E8D2226F14960068D824 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E898226EE6960068D824 /* XRPhotoBrowser.h */,
-				01B1E899226EE6960068D824 /* XRPhotoBrowser.m */,
-				01B1E89A226EE6960068D824 /* XRPhotoPickerViewController.h */,
-				01B1E89B226EE6960068D824 /* XRPhotoPickerViewController.m */,
+				01B1E8D3226F14960068D824 /* XRPhotoBrowser.h */,
+				01B1E8D4226F14960068D824 /* XRPhotoBrowser.m */,
+				01B1E8D5226F14960068D824 /* XRPhotoPickerViewController.h */,
+				01B1E8D6226F14960068D824 /* XRPhotoPickerViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		01B1E89C226EE6960068D824 /* Models */ = {
+		01B1E8D7226F14960068D824 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E89D226EE6960068D824 /* XRPhotoAssetModel.h */,
-				01B1E89E226EE6960068D824 /* XRPhotoAssetModel.m */,
+				01B1E8D8226F14960068D824 /* XRPhotoAssetModel.h */,
+				01B1E8D9226F14960068D824 /* XRPhotoAssetModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		01B1E89F226EE6960068D824 /* Views */ = {
+		01B1E8DA226F14960068D824 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E8A0226EE6960068D824 /* XRPhotoAlbumListView.h */,
-				01B1E8A1226EE6960068D824 /* XRPhotoAlbumListView.m */,
-				01B1E8A2226EE6960068D824 /* XRPhotoPickerAssetCell.h */,
-				01B1E8A3226EE6960068D824 /* XRPhotoPickerAssetCell.m */,
-				01B1E8A4226EE6960068D824 /* XRPhotoPickerBottomView.h */,
-				01B1E8A5226EE6960068D824 /* XRPhotoPickerBottomView.m */,
-				01B1E8A6226EE6960068D824 /* XRPhotoPickerNavigationBar.h */,
-				01B1E8A7226EE6960068D824 /* XRPhotoPickerNavigationBar.m */,
-				01B1E8A8226EE6960068D824 /* XRPhotoPickerNavigationTitleView.h */,
-				01B1E8A9226EE6960068D824 /* XRPhotoPickerNavigationTitleView.m */,
-				01B1E8AA226EE6960068D824 /* XRPhotoPickerTakeCameraCell.h */,
-				01B1E8AB226EE6960068D824 /* XRPhotoPickerTakeCameraCell.m */,
+				01B1E8DB226F14960068D824 /* XRPhotoAlbumListView.h */,
+				01B1E8DC226F14960068D824 /* XRPhotoAlbumListView.m */,
+				01B1E8DD226F14960068D824 /* XRPhotoPickerAssetCell.h */,
+				01B1E8DE226F14960068D824 /* XRPhotoPickerAssetCell.m */,
+				01B1E8DF226F14960068D824 /* XRPhotoPickerBottomView.h */,
+				01B1E8E0226F14960068D824 /* XRPhotoPickerBottomView.m */,
+				01B1E8E1226F14960068D824 /* XRPhotoPickerNavigationBar.h */,
+				01B1E8E2226F14960068D824 /* XRPhotoPickerNavigationBar.m */,
+				01B1E8E3226F14960068D824 /* XRPhotoPickerNavigationTitleView.h */,
+				01B1E8E4226F14960068D824 /* XRPhotoPickerNavigationTitleView.m */,
+				01B1E8E5226F14960068D824 /* XRPhotoPickerTakeCameraCell.h */,
+				01B1E8E6226F14960068D824 /* XRPhotoPickerTakeCameraCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		01B1E8AD226EE6960068D824 /* XRPhotosCategorys */ = {
+		01B1E8E8226F14960068D824 /* XRPhotosCategorys */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E8AE226EE6960068D824 /* UIImage+XRPhotosCategorys.h */,
-				01B1E8AF226EE6960068D824 /* UIImage+XRPhotosCategorys.m */,
+				01B1E8E9226F14960068D824 /* UIImage+XRPhotosCategorys.h */,
+				01B1E8EA226F14960068D824 /* UIImage+XRPhotosCategorys.m */,
 			);
 			path = XRPhotosCategorys;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 		01EFBAE51FC7EE9500C2D94A /* XRPhotos */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E887226EE6960068D824 /* Source */,
+				01B1E8C2226F14960068D824 /* Source */,
 				01EFBAE91FC7EE9500C2D94A /* AppDelegate.h */,
 				01EFBAEA1FC7EE9500C2D94A /* AppDelegate.m */,
 				01EFBB481FC7F47F00C2D94A /* PhotoSelectViewController.h */,
@@ -464,7 +464,7 @@
 			files = (
 				01EFBAF61FC7EE9500C2D94A /* LaunchScreen.storyboard in Resources */,
 				01EFBAF31FC7EE9500C2D94A /* Assets.xcassets in Resources */,
-				01B1E8C1226EE6960068D824 /* XRPhotos.bundle in Resources */,
+				01B1E8FC226F14960068D824 /* XRPhotos.bundle in Resources */,
 				01EFBAF11FC7EE9500C2D94A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,24 +576,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				01EFBAEE1FC7EE9500C2D94A /* ViewController.m in Sources */,
-				01B1E8BB226EE6960068D824 /* XRPhotoPickerAssetCell.m in Sources */,
-				01B1E8BC226EE6960068D824 /* XRPhotoPickerBottomView.m in Sources */,
-				01B1E8B3226EE6960068D824 /* PhotoAlbumListViewController.m in Sources */,
-				01B1E8B8226EE6960068D824 /* XRPhotoPickerViewController.m in Sources */,
-				01B1E8C0226EE6960068D824 /* UIImage+XRPhotosCategorys.m in Sources */,
-				01B1E8B9226EE6960068D824 /* XRPhotoAssetModel.m in Sources */,
-				01B1E8B4226EE6960068D824 /* XRPhotoAlbumListCell.m in Sources */,
+				01B1E8F6226F14960068D824 /* XRPhotoPickerAssetCell.m in Sources */,
+				01B1E8F7226F14960068D824 /* XRPhotoPickerBottomView.m in Sources */,
+				01B1E8EE226F14960068D824 /* PhotoAlbumListViewController.m in Sources */,
+				01B1E8F3226F14960068D824 /* XRPhotoPickerViewController.m in Sources */,
+				01B1E8FB226F14960068D824 /* UIImage+XRPhotosCategorys.m in Sources */,
+				01B1E8F4226F14960068D824 /* XRPhotoAssetModel.m in Sources */,
+				01B1E8EF226F14960068D824 /* XRPhotoAlbumListCell.m in Sources */,
 				01EFBB4A1FC7F47F00C2D94A /* PhotoSelectViewController.m in Sources */,
-				01B1E8B5226EE6960068D824 /* XRPhotoAlbumModel.m in Sources */,
+				01B1E8F0226F14960068D824 /* XRPhotoAlbumModel.m in Sources */,
 				01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */,
-				01B1E8BF226EE6960068D824 /* XRPhotoPickerTakeCameraCell.m in Sources */,
-				01B1E8B6226EE6960068D824 /* QKPhotoBrowser.m in Sources */,
-				01B1E8BE226EE6960068D824 /* XRPhotoPickerNavigationTitleView.m in Sources */,
+				01B1E8FA226F14960068D824 /* XRPhotoPickerTakeCameraCell.m in Sources */,
+				01B1E8F1226F14960068D824 /* QKPhotoBrowser.m in Sources */,
+				01B1E8F9226F14960068D824 /* XRPhotoPickerNavigationTitleView.m in Sources */,
 				01EFBAE81FC7EE9500C2D94A /* main.m in Sources */,
-				01B1E8BA226EE6960068D824 /* XRPhotoAlbumListView.m in Sources */,
-				01B1E8B2226EE6960068D824 /* XRPhtoManager.m in Sources */,
-				01B1E8BD226EE6960068D824 /* XRPhotoPickerNavigationBar.m in Sources */,
-				01B1E8B7226EE6960068D824 /* XRPhotoBrowser.m in Sources */,
+				01B1E8F5226F14960068D824 /* XRPhotoAlbumListView.m in Sources */,
+				01B1E8ED226F14960068D824 /* XRPhtoManager.m in Sources */,
+				01B1E8F8226F14960068D824 /* XRPhotoPickerNavigationBar.m in Sources */,
+				01B1E8F2226F14960068D824 /* XRPhotoBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +697,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -748,7 +748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

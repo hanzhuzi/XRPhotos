@@ -9,14 +9,14 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - XRPhotos (1.0.1):
+  - XRPhotos (1.0.2):
     - MWPhotoBrowser (~> 2.1.2)
     - RSKImageCropper (~> 2.2.1)
 
 DEPENDENCIES:
   - MWPhotoBrowser (~> 2.1.2)
   - RSKImageCropper (~> 2.2.1)
-  - XRPhotos
+  - XRPhotos (~> 1.0.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -33,8 +33,8 @@ SPEC CHECKSUMS:
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   RSKImageCropper: 98296ad26b41753f796b6898d015509598f13d97
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XRPhotos: 024c499678674bd9c8b4a904a0278fc8b3891d0c
+  XRPhotos: 8fbb4711243deee0f6b7fbd7af38b61f8dd7a200
 
-PODFILE CHECKSUM: a1999c19f4e1b85a28f9aac21f208e2af0fc0ca2
+PODFILE CHECKSUM: e8a1e3b1bc8ea4ec706380bc8a8188b8a32ba428
 
 COCOAPODS: 1.6.1

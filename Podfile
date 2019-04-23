@@ -8,7 +8,7 @@ target 'XRPhotos' do
   # Pods for XRPhotos
   pod 'MWPhotoBrowser', '~> 2.1.2'
   pod 'RSKImageCropper', '~> 2.2.1'
-  pod 'XRPhotos'
+  pod 'XRPhotos', '~> 1.0.3'
   
   target 'XRPhotosTests' do
     inherit! :search_paths
