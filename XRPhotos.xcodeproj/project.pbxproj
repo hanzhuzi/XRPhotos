@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0158CDD5226D9B2A006DB836 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0158CDD4226D9B2A006DB836 /* Photos.framework */; };
-		01B1E8ED226F14960068D824 /* XRPhtoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8C6226F14960068D824 /* XRPhtoManager.m */; };
-		01B1E8EE226F14960068D824 /* PhotoAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8C9226F14960068D824 /* PhotoAlbumListViewController.m */; };
+		017766FE22E9BAA5001F41CD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 017766FC22E9BAA4001F41CD /* README.md */; };
+		017766FF22E9BAA5001F41CD /* XRPhotos.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 017766FD22E9BAA4001F41CD /* XRPhotos.podspec */; };
+		01B1E8ED226F14960068D824 /* XRPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8C6226F14960068D824 /* XRPhotoManager.m */; };
 		01B1E8EF226F14960068D824 /* XRPhotoAlbumListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8CB226F14960068D824 /* XRPhotoAlbumListCell.m */; };
 		01B1E8F0226F14960068D824 /* XRPhotoAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8CD226F14960068D824 /* XRPhotoAlbumModel.m */; };
-		01B1E8F1226F14960068D824 /* QKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D0226F14960068D824 /* QKPhotoBrowser.m */; };
-		01B1E8F2226F14960068D824 /* XRPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D4226F14960068D824 /* XRPhotoBrowser.m */; };
 		01B1E8F3226F14960068D824 /* XRPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D6226F14960068D824 /* XRPhotoPickerViewController.m */; };
 		01B1E8F4226F14960068D824 /* XRPhotoAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8D9226F14960068D824 /* XRPhotoAssetModel.m */; };
 		01B1E8F5226F14960068D824 /* XRPhotoAlbumListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E8DC226F14960068D824 /* XRPhotoAlbumListView.m */; };
@@ -57,18 +56,14 @@
 
 /* Begin PBXFileReference section */
 		0158CDD4226D9B2A006DB836 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		01B1E8C5226F14960068D824 /* XRPhtoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhtoManager.h; sourceTree = "<group>"; };
-		01B1E8C6226F14960068D824 /* XRPhtoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhtoManager.m; sourceTree = "<group>"; };
-		01B1E8C8226F14960068D824 /* PhotoAlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbumListViewController.h; sourceTree = "<group>"; };
-		01B1E8C9226F14960068D824 /* PhotoAlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbumListViewController.m; sourceTree = "<group>"; };
+		017766FC22E9BAA4001F41CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		017766FD22E9BAA4001F41CD /* XRPhotos.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XRPhotos.podspec; sourceTree = "<group>"; };
+		01B1E8C5226F14960068D824 /* XRPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoManager.h; sourceTree = "<group>"; };
+		01B1E8C6226F14960068D824 /* XRPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoManager.m; sourceTree = "<group>"; };
 		01B1E8CA226F14960068D824 /* XRPhotoAlbumListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumListCell.h; sourceTree = "<group>"; };
 		01B1E8CB226F14960068D824 /* XRPhotoAlbumListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumListCell.m; sourceTree = "<group>"; };
 		01B1E8CC226F14960068D824 /* XRPhotoAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAlbumModel.h; sourceTree = "<group>"; };
 		01B1E8CD226F14960068D824 /* XRPhotoAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoAlbumModel.m; sourceTree = "<group>"; };
-		01B1E8CF226F14960068D824 /* QKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPhotoBrowser.h; sourceTree = "<group>"; };
-		01B1E8D0226F14960068D824 /* QKPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPhotoBrowser.m; sourceTree = "<group>"; };
-		01B1E8D3226F14960068D824 /* XRPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoBrowser.h; sourceTree = "<group>"; };
-		01B1E8D4226F14960068D824 /* XRPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoBrowser.m; sourceTree = "<group>"; };
 		01B1E8D5226F14960068D824 /* XRPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoPickerViewController.h; sourceTree = "<group>"; };
 		01B1E8D6226F14960068D824 /* XRPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRPhotoPickerViewController.m; sourceTree = "<group>"; };
 		01B1E8D8226F14960068D824 /* XRPhotoAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRPhotoAssetModel.h; sourceTree = "<group>"; };
@@ -162,7 +157,6 @@
 			children = (
 				01B1E8C4226F14960068D824 /* Manager */,
 				01B1E8C7226F14960068D824 /* PhotoAlbum */,
-				01B1E8CE226F14960068D824 /* PhotoBrower */,
 				01B1E8D1226F14960068D824 /* PhotoPickerController */,
 				01B1E8E7226F14960068D824 /* XRPhotos.h */,
 				01B1E8E8226F14960068D824 /* XRPhotosCategorys */,
@@ -174,8 +168,8 @@
 		01B1E8C4226F14960068D824 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E8C5226F14960068D824 /* XRPhtoManager.h */,
-				01B1E8C6226F14960068D824 /* XRPhtoManager.m */,
+				01B1E8C5226F14960068D824 /* XRPhotoManager.h */,
+				01B1E8C6226F14960068D824 /* XRPhotoManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -183,23 +177,12 @@
 		01B1E8C7226F14960068D824 /* PhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E8C8226F14960068D824 /* PhotoAlbumListViewController.h */,
-				01B1E8C9226F14960068D824 /* PhotoAlbumListViewController.m */,
 				01B1E8CA226F14960068D824 /* XRPhotoAlbumListCell.h */,
 				01B1E8CB226F14960068D824 /* XRPhotoAlbumListCell.m */,
 				01B1E8CC226F14960068D824 /* XRPhotoAlbumModel.h */,
 				01B1E8CD226F14960068D824 /* XRPhotoAlbumModel.m */,
 			);
 			path = PhotoAlbum;
-			sourceTree = "<group>";
-		};
-		01B1E8CE226F14960068D824 /* PhotoBrower */ = {
-			isa = PBXGroup;
-			children = (
-				01B1E8CF226F14960068D824 /* QKPhotoBrowser.h */,
-				01B1E8D0226F14960068D824 /* QKPhotoBrowser.m */,
-			);
-			path = PhotoBrower;
 			sourceTree = "<group>";
 		};
 		01B1E8D1226F14960068D824 /* PhotoPickerController */ = {
@@ -215,8 +198,6 @@
 		01B1E8D2226F14960068D824 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				01B1E8D3226F14960068D824 /* XRPhotoBrowser.h */,
-				01B1E8D4226F14960068D824 /* XRPhotoBrowser.m */,
 				01B1E8D5226F14960068D824 /* XRPhotoPickerViewController.h */,
 				01B1E8D6226F14960068D824 /* XRPhotoPickerViewController.m */,
 			);
@@ -263,6 +244,8 @@
 		01EFBADA1FC7EE9500C2D94A = {
 			isa = PBXGroup;
 			children = (
+				017766FC22E9BAA4001F41CD /* README.md */,
+				017766FD22E9BAA4001F41CD /* XRPhotos.podspec */,
 				01EFBAE51FC7EE9500C2D94A /* XRPhotos */,
 				01EFBAFF1FC7EE9500C2D94A /* XRPhotosTests */,
 				01EFBB0A1FC7EE9500C2D94A /* XRPhotosUITests */,
@@ -442,6 +425,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -464,6 +448,8 @@
 			files = (
 				01EFBAF61FC7EE9500C2D94A /* LaunchScreen.storyboard in Resources */,
 				01EFBAF31FC7EE9500C2D94A /* Assets.xcassets in Resources */,
+				017766FE22E9BAA5001F41CD /* README.md in Resources */,
+				017766FF22E9BAA5001F41CD /* XRPhotos.podspec in Resources */,
 				01B1E8FC226F14960068D824 /* XRPhotos.bundle in Resources */,
 				01EFBAF11FC7EE9500C2D94A /* Main.storyboard in Resources */,
 			);
@@ -547,21 +533,17 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XRPhotos/Pods-XRPhotos-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/XRPhotos/XRPhotos.framework",
+				"${BUILT_PRODUCTS_DIR}/XRPhotoBrowser/XRPhotoBrowser.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XRPhotos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XRPhotoBrowser.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -578,7 +560,6 @@
 				01EFBAEE1FC7EE9500C2D94A /* ViewController.m in Sources */,
 				01B1E8F6226F14960068D824 /* XRPhotoPickerAssetCell.m in Sources */,
 				01B1E8F7226F14960068D824 /* XRPhotoPickerBottomView.m in Sources */,
-				01B1E8EE226F14960068D824 /* PhotoAlbumListViewController.m in Sources */,
 				01B1E8F3226F14960068D824 /* XRPhotoPickerViewController.m in Sources */,
 				01B1E8FB226F14960068D824 /* UIImage+XRPhotosCategorys.m in Sources */,
 				01B1E8F4226F14960068D824 /* XRPhotoAssetModel.m in Sources */,
@@ -587,13 +568,11 @@
 				01B1E8F0226F14960068D824 /* XRPhotoAlbumModel.m in Sources */,
 				01EFBAEB1FC7EE9500C2D94A /* AppDelegate.m in Sources */,
 				01B1E8FA226F14960068D824 /* XRPhotoPickerTakeCameraCell.m in Sources */,
-				01B1E8F1226F14960068D824 /* QKPhotoBrowser.m in Sources */,
 				01B1E8F9226F14960068D824 /* XRPhotoPickerNavigationTitleView.m in Sources */,
 				01EFBAE81FC7EE9500C2D94A /* main.m in Sources */,
 				01B1E8F5226F14960068D824 /* XRPhotoAlbumListView.m in Sources */,
-				01B1E8ED226F14960068D824 /* XRPhtoManager.m in Sources */,
+				01B1E8ED226F14960068D824 /* XRPhotoManager.m in Sources */,
 				01B1E8F8226F14960068D824 /* XRPhotoPickerNavigationBar.m in Sources */,
-				01B1E8F2226F14960068D824 /* XRPhotoBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,7 +743,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: KaiJun Yin (36DBGBQP5A)";
 				DEVELOPMENT_TEAM = 23PU435V7A;
 				INFOPLIST_FILE = XRPhotos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xr.XRPhotos;
@@ -783,7 +762,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: KaiJun Yin (36DBGBQP5A)";
 				DEVELOPMENT_TEAM = 23PU435V7A;
 				INFOPLIST_FILE = XRPhotos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xr.XRPhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";

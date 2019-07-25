@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -34,29 +34,29 @@ NSLog(__VA_ARGS__)
 /**
  * iPhone 机型定义
  */
-#define iSiPhone5_5S_SE ([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
+#define iSiPhone5_5S_SE (([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
 (((CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(640, 1136))) ? YES : NO) \
-|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1136, 640))) ? YES : NO) : NO
+|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1136, 640))) ? YES : NO) : NO)
 
-#define iSiPhone6_7_8 ([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
+#define iSiPhone6_7_8 (([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
 (((CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(750, 1334))) ? YES : NO) \
-|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1334, 750))) ? YES : NO) : NO
+|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1334, 750))) ? YES : NO) : NO)
 
-#define iSiPhone6_7_8Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
+#define iSiPhone6_7_8Plus (([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
 (((CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1242, 2208))) ? YES : NO) \
-|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(2208, 1242))) ? YES : NO) : NO
+|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(2208, 1242))) ? YES : NO) : NO)
 
-#define iSiPhoneX_XS ([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
+#define iSiPhoneX_XS (([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
 (((CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1125, 2436))) ? YES : NO) \
-|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(2436, 1125))) ? YES : NO) : NO
+|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(2436, 1125))) ? YES : NO) : NO)
 
-#define iSiPhoneXR ([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
+#define iSiPhoneXR (([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
 (((CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(828, 1792))) ? YES : NO) \
-|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1792, 828))) ? YES : NO) : NO
+|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1792, 828))) ? YES : NO) : NO)
 
-#define iSiPhoneXS_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
+#define iSiPhoneXS_Max (([UIScreen instancesRespondToSelector:@selector(currentMode)]) ? \
 (((CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(1242, 2688))) ? YES : NO) \
-|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(2688, 1242))) ? YES : NO) : NO
+|| (CGSizeEqualToSize([[UIScreen mainScreen].currentMode size], CGSizeMake(2688, 1242))) ? YES : NO) : NO)
 
 // 是否有刘海
 #define iSiPhoneXSerries (iSiPhoneX_XS || iSiPhoneXR || iSiPhoneXS_Max)

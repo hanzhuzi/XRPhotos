@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -50,7 +50,7 @@
 @property (nonatomic, assign) BOOL isSupportCamera; // 是否支持拍照
 @property (nonatomic, assign) BOOL isAllowMultipleSelect; // 是否允许多选
 @property (nonatomic, assign) BOOL isAllowCrop; // 是否允许裁剪
-@property (nonatomic, assign) BOOL isPreviewForSingleSelect; // 单选时是否需要预览，且只在单选时有效
+@property (nonatomic, assign) BOOL isPreviewForSingleSelect; // 单选时是否需要预览，单选不允许裁剪时有效
 @property (nonatomic, assign) BOOL isAscingForCreation; // 是否按照创建日期进行升序排序 默认YES
 @property (nonatomic, assign) BOOL isPortrait; // 是否是竖屏
 

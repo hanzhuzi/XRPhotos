@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-#import "XRPhtoManager.h"
+#import "XRPhotoManager.h"
 #import <Photos/Photos.h>
 #import "XRPhotoAlbumModel.h"
 #import "XRPhotoAssetModel.h"
@@ -28,11 +28,11 @@
 
 #define iOS9_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
 
-@interface XRPhtoManager ()
+@interface XRPhotoManager ()
 
 @end
 
-@implementation XRPhtoManager
+@implementation XRPhotoManager
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -43,9 +43,9 @@
     return self;
 }
 
-+ (XRPhtoManager *)defaultManager {
++ (XRPhotoManager *)defaultManager {
     
-    XRPhtoManager * manager = [[XRPhtoManager alloc] init];
+    XRPhotoManager * manager = [[XRPhotoManager alloc] init];
     return manager;
 }
 
@@ -249,25 +249,44 @@
         
         PHAsset * pAsset = phModel.phAsset;
         
-        [self.cacheImageManager requestImageForAsset:pAsset targetSize:CGSizeMake(targetSize.width * scale, targetSize.height * scale) contentMode:PHImageContentModeAspectFill options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            if (result) {
-                result = [result fixOrientation];
+        PHImageRequestID imageReqID = [self.cacheImageManager requestImageForAsset:pAsset targetSize:CGSizeMake(targetSize.width * scale, targetSize.height * scale) contentMode:PHImageContentModeAspectFill options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (info && info[PHImageResultRequestIDKey]) {
                 
-                if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        BOOL isDegrade = [info[PHImageResultIsDegradedKey] boolValue];
-                        completeBlock(isDegrade, result);
-                    });
+                PHImageRequestID requestID = [info[PHImageResultRequestIDKey] intValue];
+                if (phModel.requestID == requestID) {
+                    if (![info[PHImageCancelledKey] boolValue] && ![info[PHImageErrorKey] boolValue]) {
+                        
+                        if (result) {
+                            UIImage * resImage = [result fixOrientation];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                BOOL isDegrade = [info[PHImageResultIsDegradedKey] boolValue];
+                                completeBlock(isDegrade, resImage);
+                            });
+                        }
+                        else {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completeBlock(YES, nil);
+                            });
+                        }
+                    }
+                    else {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completeBlock(YES, nil);
+                        });
+                    }
                 }
             }
             else {
-                if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completeBlock(YES, nil);
-                    });
-                }
+                // 一般不会到这里，异步请求若走到这里也无法判断是哪一个请求出错了。
+                XRLog(@"requestImageForAsset is error!");
+                UIImage * resImage = [result fixOrientation];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completeBlock(YES, resImage);
+                });
             }
         }];
+        
+        phModel.requestID = imageReqID;
     }];
 }
 
@@ -300,44 +319,58 @@
         
         PHAsset * pAsset = phModel.phAsset;
         
-        [self.cacheImageManager requestImageForAsset:pAsset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            if (result && info) {
-                if (![info[PHImageResultIsDegradedKey] boolValue] && ![info[PHImageCancelledKey] boolValue] && ![info[PHImageErrorKey] boolValue]) {
-                    result = [result fixOrientation];
-                    
-                    if (pAsset.mediaType == PHAssetMediaTypeImage) {
-                        NSURL * fileURL = (NSURL *)info[@"PHImageFileURLKey"];
-                        XRLog(@"image fileURL--> %@", fileURL);
-                    }
-                    else if (pAsset.mediaType == PHAssetMediaTypeVideo) {
-                        if ([pAsset isKindOfClass:[AVURLAsset class]]) {
-                            NSURL * fileURL = ((AVURLAsset *)pAsset).URL;
-                            XRLog(@"video fileURL--> %@", fileURL);
+        PHImageRequestID imageReqID = [self.cacheImageManager requestImageForAsset:pAsset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (info && info[PHImageResultRequestIDKey]) {
+                
+                PHImageRequestID requestID = [info[PHImageResultRequestIDKey] intValue];
+                if (phModel.requestID == requestID) {
+                    if (![info[PHImageCancelledKey] boolValue] && ![info[PHImageErrorKey] boolValue] && ![info[PHImageResultIsDegradedKey] boolValue]) {
+                        
+                        if (result) {
+                            UIImage * resImage = [result fixOrientation];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completeBlock(resImage);
+                            });
+                        }
+                        else {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completeBlock(nil);
+                            });
                         }
                     }
-                    
-                    if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
+                    else {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            completeBlock(result);
+                            completeBlock(nil);
                         });
                     }
                 }
             }
             else {
-                if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completeBlock(nil);
-                    });
-                }
+                // 一般不会到这里，异步请求若走到这里也无法判断是哪一个请求出错了。
+                XRLog(@"requestImageForAsset is error!");
+                UIImage * resImage = [result fixOrientation];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completeBlock(resImage);
+                });
             }
         }];
+        
+        phModel.requestID = imageReqID;
     }];
 }
 
 // 获取合适的缩略图
-- (void)getFitsThumbImageWithAsset:(XRPhotoAssetModel *)phModel completeBlock:(void (^)(UIImage * image))completeBlock {
+- (void)getFitsThumbImageWithAsset:(XRPhotoAssetModel *)phModel
+            getImageRequestIDBlock:(void (^)(PHImageRequestID imageRequestID))imageRequestIDBlock
+                     completeBlock:(void (^)(UIImage * image, PHImageRequestID imageRequestID))completeBlock {
     
     [self.requestQueue addOperationWithBlock:^{
+        
+        // cancel之前的请求
+        if (phModel.requestID != PHInvalidImageRequestID) {
+            [self.cacheImageManager cancelImageRequest:phModel.requestID];
+            phModel.requestID = PHInvalidImageRequestID;
+        }
         
         // 获取图片
         PHImageRequestOptions * reqOptions = [[PHImageRequestOptions alloc] init];
@@ -366,37 +399,46 @@
         CGFloat imageSize = MAX(XR_Screen_Size.width, XR_Screen_Size.height) * 1.5;
         CGSize thumbTargetSize = CGSizeMake(imageSize / 3.0 * scale, imageSize / 3.0 * scale); // 缩略图
         
-        [self.cacheImageManager requestImageForAsset:pAsset targetSize:thumbTargetSize contentMode:PHImageContentModeAspectFit options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            if (result && info) {
-                if (![info[PHImageCancelledKey] boolValue] && ![info[PHImageErrorKey] boolValue]) {
-                    result = [result fixOrientation];
-                    
-                    if (pAsset.mediaType == PHAssetMediaTypeImage) {
-                        NSURL * fileURL = (NSURL *)info[@"PHImageFileURLKey"];
-                        XRLog(@"image fileURL--> %@", fileURL);
-                    }
-                    else if (pAsset.mediaType == PHAssetMediaTypeVideo) {
-                        if ([pAsset isKindOfClass:[AVURLAsset class]]) {
-                            NSURL * fileURL = ((AVURLAsset *)pAsset).URL;
-                            XRLog(@"video fileURL--> %@", fileURL);
+        PHImageRequestID imageReqID = [self.cacheImageManager requestImageForAsset:pAsset targetSize:thumbTargetSize contentMode:PHImageContentModeAspectFit options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (info && info[PHImageResultRequestIDKey]) {
+                
+                PHImageRequestID requestID = [info[PHImageResultRequestIDKey] intValue];
+                if (phModel.requestID == requestID) {
+                    if (![info[PHImageCancelledKey] boolValue] && ![info[PHImageErrorKey] boolValue]) {
+                        
+                        if (result) {
+                            UIImage * resImage = [result fixOrientation];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completeBlock(resImage, requestID);
+                            });
+                        }
+                        else {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completeBlock(nil, requestID);
+                            });
                         }
                     }
-                    
-                    if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
+                    else {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            completeBlock(result);
+                            completeBlock(nil, requestID);
                         });
                     }
                 }
             }
             else {
-                if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completeBlock(nil);
-                    });
-                }
+                // 一般不会到这里，异步请求若走到这里也无法判断是哪一个请求出错了。
+                XRLog(@"requestImageForAsset is error!");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completeBlock(nil, PHInvalidImageRequestID);
+                });
             }
         }];
+        
+        phModel.requestID = imageReqID;
+        
+        if (imageRequestIDBlock) {
+            imageRequestIDBlock(phModel.requestID);
+        }
     }];
 }
 
@@ -432,36 +474,39 @@
         CGFloat imageSize = MAX(XR_Screen_Size.width, XR_Screen_Size.height) * 1.5;
         CGSize imageTargetSize = CGSizeMake(imageSize * scale, imageSize * scale); // 大图
         
-        [self.cacheImageManager requestImageForAsset:pAsset targetSize:imageTargetSize contentMode:PHImageContentModeAspectFit options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            if (result && info) {
-                if (![info[PHImageCancelledKey] boolValue] && ![info[PHImageErrorKey] boolValue]) {
-                    result = [result fixOrientation];
-                    
-                    if (pAsset.mediaType == PHAssetMediaTypeImage) {
-                        NSURL * fileURL = (NSURL *)info[@"PHImageFileURLKey"];
-                        XRLog(@"image fileURL--> %@", fileURL);
-                    }
-                    else if (pAsset.mediaType == PHAssetMediaTypeVideo) {
-                        if ([pAsset isKindOfClass:[AVURLAsset class]]) {
-                            NSURL * fileURL = ((AVURLAsset *)pAsset).URL;
-                            XRLog(@"video fileURL--> %@", fileURL);
+        PHImageRequestID imageReqID = [self.cacheImageManager requestImageForAsset:pAsset targetSize:imageTargetSize contentMode:PHImageContentModeAspectFit options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (info && info[PHImageResultRequestIDKey]) {
+                
+                PHImageRequestID requestID = [info[PHImageResultRequestIDKey] intValue];
+                if (phModel.requestID == requestID) {
+                    if (![info[PHImageCancelledKey] boolValue] && ![info[PHImageErrorKey] boolValue] && ![info[PHImageResultIsDegradedKey] boolValue]) {
+                        
+                        if (result) {
+                            UIImage * resImage = [result fixOrientation];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completeBlock(resImage);
+                            });
+                        }
+                        else {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completeBlock(nil);
+                            });
                         }
                     }
-                    if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
+                    else {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            completeBlock(result);
+                            completeBlock(nil);
                         });
                     }
                 }
             }
             else {
-                if ([phModel.requestIdentifier isEqualToString:pAsset.localIdentifier]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completeBlock(nil);
-                    });
-                }
+                // 一般不会到这里，异步请求若走到这里也无法判断是哪一个请求出错了。
+                XRLog(@"requestImageForAsset is error!");
             }
         }];
+        
+        phModel.requestID = imageReqID;
     }];
 }
 

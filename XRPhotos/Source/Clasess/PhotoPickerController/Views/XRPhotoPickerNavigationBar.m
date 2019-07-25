@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -30,9 +30,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _bottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - 1.0, CGRectGetWidth(self.frame), 1.0)];
-        _bottomLineView.backgroundColor = UIColorFromRGB(0xDEDEDE);
-        [self addSubview:_bottomLineView];
+        self.layer.shadowOpacity = 1;
+        self.layer.shadowColor = [UIColorFromRGB(0x000000) colorWithAlphaComponent:0.16].CGColor;
+        self.layer.shadowOffset = CGSizeMake(-1, -1);
+        self.layer.shadowRadius = 3;
         
         _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftButton addTarget:self action:@selector(leftBtnAction) forControlEvents:UIControlEventTouchUpInside];

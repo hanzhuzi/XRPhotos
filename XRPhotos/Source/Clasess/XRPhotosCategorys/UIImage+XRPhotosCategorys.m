@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -126,6 +126,59 @@
     CGImageRelease(cgimg);
     
     return img;
+}
+
+/**
+ * 指定size进行裁剪图片
+ */
+- (UIImage *)imageCompressToSize:(CGSize)size {
+    
+    UIImage *newImage = nil;
+    CGSize imageSize = self.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = size.width;
+    CGFloat targetHeight = size.height;
+    CGFloat scaleFactor = 1.0;
+    CGFloat scaledWidth = targetWidth;
+    CGFloat scaledHeight = targetHeight;
+    CGPoint thumbnailPoint = CGPointMake(0.0, 0.0);
+    if(CGSizeEqualToSize(imageSize, size) == NO){
+        CGFloat widthFactor = targetWidth / width;
+        CGFloat heightFactor = targetHeight / height;
+        if(widthFactor > heightFactor){
+            scaleFactor = widthFactor;
+        }
+        else{
+            scaleFactor = heightFactor;
+        }
+        scaledWidth = width * scaleFactor;
+        scaledHeight = height * scaleFactor;
+        if(widthFactor > heightFactor){
+            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;
+        }else if(widthFactor < heightFactor){
+            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
+        }
+    }
+    
+    @autoreleasepool {
+        // 裁剪图片，不透明，分辨率为系统分辨率.
+        // opaque YES 不透明，不设置背景色或者backgroundColor为clearColor时会默认为黑色背景
+        // NO 透明 没有默认的黑色背景
+        BOOL opaque = NO;
+        
+        UIGraphicsBeginImageContextWithOptions(size, opaque, [UIScreen mainScreen].scale);
+        CGRect thumbnailRect = CGRectZero;
+        thumbnailRect.origin = thumbnailPoint;
+        thumbnailRect.size.width = scaledWidth;
+        thumbnailRect.size.height = scaledHeight;
+        
+        [self drawInRect:thumbnailRect];
+        newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    return newImage;
 }
 
 @end

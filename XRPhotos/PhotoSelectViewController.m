@@ -7,7 +7,7 @@
 //
 
 #import "PhotoSelectViewController.h"
-#import "XRPhotoPickerViewController.h"
+#import "XRPhotos.h"
 
 @interface PhotoSelectViewController ()<XRPhotoPickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -30,14 +30,16 @@
     }];
     
     UIAlertAction * pickerSelectAction = [UIAlertAction actionWithTitle:@"打开相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        weakSelf.photoPicker = [[XRPhotoPickerViewController alloc] init];
-        weakSelf.photoPicker.delegate = weakSelf;
-        weakSelf.photoPicker.isPortrait = YES;
-        weakSelf.photoPicker.isAllowCrop = YES;
-        weakSelf.photoPicker.isAllowMultipleSelect = NO;
-        weakSelf.photoPicker.isSupportCamera = YES;
-        weakSelf.photoPicker.cropSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-        [weakSelf.navigationController pushViewController:weakSelf.photoPicker animated:true];
+        XRPhotoPickerViewController * photoPicker = [[XRPhotoPickerViewController alloc] init];
+        photoPicker.delegate = weakSelf;
+        photoPicker.isPortrait = YES;
+        photoPicker.isAllowCrop = NO;
+        photoPicker.isAllowMultipleSelect = YES;
+        photoPicker.isPreviewForSingleSelect = YES;
+        photoPicker.maxSelectPhotos = 10;
+        photoPicker.isSupportCamera = YES;
+        photoPicker.cropSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        [weakSelf.navigationController pushViewController:photoPicker animated:true];
     }];
     
     [alertCtrl addAction:takePhotoAction];

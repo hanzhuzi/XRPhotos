@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -31,6 +31,8 @@
         self.backgroundColor = [UIColor whiteColor];
         
         _assetImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        _assetImageView.clipsToBounds = YES;
+        _assetImageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:_assetImageView];
         
         _selectButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.assetImageView.frame) - XR_PhotoAsset_GridCell_SelectButtonWidth - 5.0, 5.0, XR_PhotoAsset_GridCell_SelectButtonWidth, XR_PhotoAsset_GridCell_SelectButtonWidth)];

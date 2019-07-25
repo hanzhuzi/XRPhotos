@@ -1,40 +1,30 @@
 PODS:
-  - DACircularProgress (2.3.1)
-  - MBProgressHUD (0.9.2)
-  - MWPhotoBrowser (2.1.2):
-    - DACircularProgress (~> 2.3)
-    - MBProgressHUD (~> 0.9)
-    - "SDWebImage (!= 3.7.2, ~> 3.7)"
+  - MBProgressHUD (1.1.0)
   - RSKImageCropper (2.2.1)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
-  - XRPhotos (1.0.2):
-    - MWPhotoBrowser (~> 2.1.2)
-    - RSKImageCropper (~> 2.2.1)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - XRPhotoBrowser (1.0.2):
+    - SDWebImage (~> 5.0.6)
 
 DEPENDENCIES:
-  - MWPhotoBrowser (~> 2.1.2)
+  - MBProgressHUD
   - RSKImageCropper (~> 2.2.1)
-  - XRPhotos (~> 1.0.2)
+  - XRPhotoBrowser (~> 1.0.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - DACircularProgress
     - MBProgressHUD
-    - MWPhotoBrowser
     - RSKImageCropper
     - SDWebImage
-    - XRPhotos
+    - XRPhotoBrowser
 
 SPEC CHECKSUMS:
-  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   RSKImageCropper: 98296ad26b41753f796b6898d015509598f13d97
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XRPhotos: 8fbb4711243deee0f6b7fbd7af38b61f8dd7a200
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  XRPhotoBrowser: 333d83ccfecde7623f4cd5fc92b489db20d685d1
 
-PODFILE CHECKSUM: e8a1e3b1bc8ea4ec706380bc8a8188b8a32ba428
+PODFILE CHECKSUM: 956da3197e2d3f9125f426b57912735b0a2386e2
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

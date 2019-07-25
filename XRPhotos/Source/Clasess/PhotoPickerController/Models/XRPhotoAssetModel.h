@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,13 +21,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
+#import "XRPhotoManager.h"
 
 @class PHAsset;
 @interface XRPhotoAssetModel : NSObject
 
-@property (nonatomic, strong) PHAsset * phAsset; // 资源
-// 此处的请求ID不可用localIdentifier，因为iCloud是空的
-@property (nonatomic, copy) NSString * requestIdentifier; // 请求ID
+@property (nonatomic, strong) PHAsset * phAsset;
+
+/// request id for request image or video default is PHInvalidImageRequestID.
+@property (nonatomic, assign) PHImageRequestID requestID;
 
 @property (nonatomic, strong) NSIndexPath * indexPath;
 

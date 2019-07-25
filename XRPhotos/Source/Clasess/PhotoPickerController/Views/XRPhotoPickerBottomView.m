@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -72,7 +72,7 @@
     
     if (currentSelect > 0) {
         _finishBtn.enabled = YES;
-        [_finishBtn setBackgroundColor:UIColorFromRGB(0x2170E8)];
+        [_finishBtn setBackgroundColor:UIColorFromRGB(0xFBB700)];
         [_finishBtn setTitleColor:UIColorFromRGB(0xFFFFFF) forState:UIControlStateNormal];
     }
     else {

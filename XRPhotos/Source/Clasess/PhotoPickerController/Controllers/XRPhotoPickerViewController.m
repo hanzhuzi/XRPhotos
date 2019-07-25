@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,8 +24,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <RSKImageCropper/RSKImageCropper.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <XRPhotoBrowser/XRPhotoBrowser.h>
 
-#import "XRPhtoManager.h"
+#import "XRPhotoManager.h"
 #import "XRPhotoAssetModel.h"
 #import "XRPhotoAlbumModel.h"
 #import "XRPhotoPickerAssetCell.h"
@@ -35,11 +36,10 @@
 #import "XRPhotosConfigs.h"
 #import "UIImage+XRPhotosCategorys.h"
 #import "XRPhotoPickerBottomView.h"
-#import "XRPhotoBrowser.h"
 #import "XRPhotoPickerNavigationTitleView.h"
 #import "XRPhotoPickerNavigationBar.h"
 
-@interface XRPhotoPickerViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XRPhotoAlbumListViewDelegate, XPhotoBrowserDelegate, RSKImageCropViewControllerDelegate, RSKImageCropViewControllerDataSource>
+@interface XRPhotoPickerViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XRPhotoAlbumListViewDelegate, RSKImageCropViewControllerDelegate, RSKImageCropViewControllerDataSource>
 
 // PhotoPicker
 @property (nonatomic, strong) UICollectionView * mainCollection;
@@ -48,7 +48,7 @@
 @property (nonatomic, strong) NSMutableArray <XRPhotoAssetModel *>* tmpSelectedAssetArray;
 @property (nonatomic, assign) NSUInteger selectStepCounter;
 
-@property (nonatomic, strong) XRPhtoManager * phManager;
+@property (nonatomic, strong) XRPhotoManager * phManager;
 @property (nonatomic, strong) NSString * saveLocalIdentifier;
 
 // PhotoAlbums
@@ -159,9 +159,9 @@
 }
 
 #pragma mark - Lazy Porpertys
-- (XRPhtoManager *)phManager {
+- (XRPhotoManager *)phManager {
     if (!_phManager) {
-        _phManager = [XRPhtoManager defaultManager];
+        _phManager = [XRPhotoManager defaultManager];
         _phManager.isAscingForCreation = _isAscingForCreation;
     }
     return _phManager;
@@ -244,19 +244,16 @@
         
         weakSelf.tmpSelectedAssetArray = [NSMutableArray arrayWithArray:weakSelf.selectedAssetArray];
         
-        XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] initWithDelegate:weakSelf tmpAssets:weakSelf.tmpSelectedAssetArray];
-        photoBrowser.isPreviewForSingleSelect = weakSelf.isPreviewForSingleSelect;
-        photoBrowser.zoomPhotosToFill = NO;
-        photoBrowser.displayNavArrows = YES;
-        photoBrowser.displayActionButton = NO;
-        photoBrowser.displaySelectionButtons = NO;
-        photoBrowser.alwaysShowControls = NO;
-        photoBrowser.enableGrid = NO;
-        photoBrowser.enableSwipeToDismiss = NO;
-        photoBrowser.startOnGrid = NO;
-        photoBrowser.autoPlayOnAppear = NO;
+        NSMutableArray * photos = [NSMutableArray arrayWithCapacity:10];
+        [weakSelf.tmpSelectedAssetArray enumerateObjectsUsingBlock:^(XRPhotoAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            XRPhotoBrowserModel * model = [XRPhotoBrowserModel photoBrowserModelWithAsset:obj.phAsset];
+            [photos addObject:model];
+        }];
         
-        [weakSelf.navigationController pushViewController:photoBrowser animated:YES];
+        XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] init];
+        photoBrowser.dataArray = photos;
+        
+        [photoBrowser showPhotoBrowser:weakSelf displayAtIndex:0];
     };
     
     // 完成
@@ -284,7 +281,7 @@
     self.navigationTitleBtn.frame = CGRectMake(60, XR_StatusBarHeight, self.screenWidth - 120, XR_CustomNavigationBarHeight - XR_StatusBarHeight);
     [self.navigationTitleBtn configNavigationTitleViewWithTitle:@"相机胶卷"];
     self.navigationTitleBtn.backgroundColor = [UIColor whiteColor];
-    [self.customNavigationBar insertSubview:self.navigationTitleBtn belowSubview:self.customNavigationBar.bottomLineView];
+    [self.customNavigationBar addSubview:self.navigationTitleBtn];
     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showAlbumListWithAnimate)];
     tapGesture.numberOfTapsRequired = 1;
@@ -307,13 +304,6 @@
     // 设置不允许UIScrollView及其子类向下偏移
     if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
         [self setAutomaticallyAdjustsScrollViewInsets:NO];
-    }
-    
-    // 适配iOS11
-    if (@available(iOS 11.0, *)) {
-        [UIScrollView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        // Fallback on earlier versions
     }
     
     self.navigationController.navigationBar.translucent = NO;
@@ -349,7 +339,7 @@
     }
     
     if (@available(iOS 11.0, *)) {
-        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+        [self.mainCollection setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
     else {
         if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
@@ -483,9 +473,9 @@
     if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
         MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.margin = 10;
-        hud.cornerRadius = 5;
-        hud.activityIndicatorColor = UIColorFromRGB(0xAAAAAA);
-        hud.color = UIColorFromRGB(0xF2F2F2);
+        hud.bezelView.layer.cornerRadius = 5;
+        [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[MBProgressHUD.class]].color = UIColorFromRGB(0xAAAAAA);
+        hud.bezelView.color = UIColorFromRGB(0xF2F2F2);
         
         [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
             [weakSelf.phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:weakSelf.targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
@@ -541,9 +531,9 @@
                     // 获取相册
                     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     hud.margin = 10;
-                    hud.cornerRadius = 5;
-                    hud.activityIndicatorColor = UIColorFromRGB(0xAAAAAA);
-                    hud.color = UIColorFromRGB(0xF2F2F2);
+                    hud.bezelView.layer.cornerRadius = 5;
+                    [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[MBProgressHUD.class]].color = UIColorFromRGB(0xAAAAAA);
+                    hud.bezelView.color = UIColorFromRGB(0xF2F2F2);
                     
                     [self.phManager getAllPhotoAlbumListWithAllowPickVideo:NO targetSize:weakSelf.targetSize fetchedAlbumList:^(NSArray<XRPhotoAlbumModel *> *albumList) {
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -576,55 +566,6 @@
 }
 
 #pragma mark - Methods
-- (UICollectionViewCell *)cellForPhotoPickerWithCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath {
-    
-    __block XRPhotoPickerAssetCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XRPhotoPickerAssetCell" forIndexPath:indexPath];
-    
-    cell.backgroundColor = UIColorFromRGB(0xCCCCCC);
-    
-    NSInteger index = indexPath.item;
-    if (self.isSupportCamera) {
-        index = self.phManager.isAscingForCreation ? indexPath.item : indexPath.item - 1;
-    }
-    
-    if (index < _assetArray.count) {
-        __block XRPhotoAssetModel * assetModel = _assetArray[index];
-        assetModel.indexPath = indexPath; // 记录IndexPath
-        
-        cell.representedAssetIdentifier = assetModel.phAsset.localIdentifier;
-        
-        if (self.isAllowMultipleSelect) {
-            cell.selectButton.hidden = NO;
-            cell.selectButton.selected = [self.selectedAssetArray containsObject:assetModel];
-        }
-        else {
-            cell.selectButton.hidden = YES;
-        }
-        
-        CGFloat itemWidth = (self.screenWidth - XR_PhotoAsset_Grid_Border * 5.0) / 4.0;
-        
-        [self.phManager getThumbImageWithAsset:assetModel targetSize:CGSizeMake(itemWidth, itemWidth) completeBlock:^(BOOL isDegrade, UIImage *image) {
-            if ([cell.representedAssetIdentifier isEqualToString:assetModel.phAsset.localIdentifier] && image) {
-                cell.assetImageView.image = image;
-            }
-        }];
-        
-        // 处理iCloud图片下载
-        if (assetModel.isDownloadingFromiCloud && assetModel.downloadProgress.doubleValue < 1.0) {
-            cell.progressLbl.hidden = NO;
-            
-            cell.progressLbl.text = [NSString stringWithFormat:@"%d%%", (int)([assetModel.downloadProgress doubleValue] * 100)];
-        }
-        else {
-            // 无需iCloud下载，或已下载到本地相册中
-            cell.progressLbl.hidden = YES;
-        }
-        
-        return cell;
-    }
-    
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-}
 
 - (void)takePhotoAction {
     
@@ -714,6 +655,72 @@
     [self.navigationController pushViewController:imageCroper animated:YES];
 }
 
+- (UICollectionViewCell *)cellForPhotoPickerWithCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath {
+    
+    __block XRPhotoPickerAssetCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XRPhotoPickerAssetCell" forIndexPath:indexPath];
+    
+    cell.backgroundColor = UIColorFromRGB(0xF5F5F5);
+    cell.contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
+    
+    NSInteger index = indexPath.item;
+    if (self.isSupportCamera) {
+        index = self.phManager.isAscingForCreation ? indexPath.item : indexPath.item - 1;
+    }
+    
+    if (index < _assetArray.count) {
+        XRPhotoAssetModel * assetModel = _assetArray[index];
+        assetModel.indexPath = indexPath;
+        
+        if (self.isAllowMultipleSelect) {
+            cell.selectButton.hidden = NO;
+            cell.selectButton.selected = [self.selectedAssetArray containsObject:assetModel];
+        }
+        else {
+            cell.selectButton.hidden = YES;
+        }
+        
+        if (assetModel.requestID != cell.imageReqID || !cell.assetImageView.image) {
+            cell.assetImageView.contentMode = UIViewContentModeCenter;
+            cell.assetImageView.image = [UIImage imageForResourceName:@"image_loading" selfClass:[self class]];
+            cell.isInProgressLoading = YES;
+        }
+        else {
+            cell.assetImageView.contentMode = UIViewContentModeScaleAspectFill;
+            cell.isInProgressLoading = NO;
+        }
+        
+        [self.phManager getFitsThumbImageWithAsset:assetModel getImageRequestIDBlock:^(PHImageRequestID imageRequestID) {
+            cell.imageReqID = imageRequestID;
+        } completeBlock:^(UIImage *image, PHImageRequestID imageRequestID) {
+            if (cell.imageReqID == imageRequestID) {
+                cell.assetImageView.contentMode = UIViewContentModeScaleAspectFill;
+                if (image) {
+                    cell.assetImageView.image = image;
+                    cell.isInProgressLoading = NO;
+                }
+                else {
+                    cell.assetImageView.image = nil;
+                }
+            }
+        }];
+        
+        // 处理iCloud图片下载
+        if (assetModel.isDownloadingFromiCloud && assetModel.downloadProgress.doubleValue < 1.0) {
+            cell.progressLbl.hidden = NO;
+            
+            cell.progressLbl.text = [NSString stringWithFormat:@"%d%%", (int)([assetModel.downloadProgress doubleValue] * 100)];
+        }
+        else {
+            // 无需iCloud下载，或已下载到本地相册中
+            cell.progressLbl.hidden = YES;
+        }
+        
+        return cell;
+    }
+    
+    return [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+}
+
 #pragma mark - Delegates
 #pragma mark - UICollectionViewDelegate
 
@@ -737,7 +744,7 @@
             if (self.phManager.isAscingForCreation) {
                 if (indexPath.item == _assetArray.count) {
                     XRPhotoPickerTakeCameraCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XRPhotoPickerTakeCameraCell" forIndexPath:indexPath];
-                    cell.backgroundColor = UIColorFromRGB(0x999999);
+                    cell.backgroundColor = UIColorFromRGB(0xdbdbdb);
                     return cell;
                 }
                 else {
@@ -747,7 +754,7 @@
             else {
                 if (indexPath.item == 0) {
                     XRPhotoPickerTakeCameraCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XRPhotoPickerTakeCameraCell" forIndexPath:indexPath];
-                    cell.backgroundColor = UIColorFromRGB(0x999999);
+                    cell.backgroundColor = UIColorFromRGB(0xdbdbdb);
                     return cell;
                 }
                 else {
@@ -782,8 +789,10 @@
                 else {
                     XRPhotoPickerAssetCell * cell = (XRPhotoPickerAssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
                     
-                    if (indexPath.item < self.assetArray.count) {
-                        XRPhotoAssetModel * assetModel = self.assetArray[indexPath.item];
+                    NSUInteger index = indexPath.item;
+                    
+                    if (index < self.assetArray.count) {
+                        XRPhotoAssetModel * assetModel = self.assetArray[index];
                         assetModel.indexPath = indexPath;
                         
                         if (self.isAllowMultipleSelect) {
@@ -813,41 +822,45 @@
                         }
                         else {
                             // 单选
-                            [[self phManager] getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
-                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                    if (weakSelf.isAllowCrop) {
+                            if (self.isAllowCrop) {
+                                // 需要裁剪
+                                [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
+                                    dispatch_async(dispatch_get_main_queue(), ^{
                                         [weakSelf cropPhotoWithImage:image];
-                                    }
-                                    else {
-                                        if (weakSelf.isPreviewForSingleSelect) {
-                                            // 单选时需要预览
-                                            [weakSelf.selectedAssetArray removeAllObjects];
-                                            [weakSelf.selectedAssetArray addObject:assetModel];
-                                            
-                                            weakSelf.tmpSelectedAssetArray = [NSMutableArray arrayWithArray:weakSelf.selectedAssetArray];
-                                            
-                                            XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] initWithDelegate:weakSelf tmpAssets:weakSelf.tmpSelectedAssetArray];
-                                            photoBrowser.isPreviewForSingleSelect = weakSelf.isPreviewForSingleSelect;
-                                            photoBrowser.zoomPhotosToFill = NO;
-                                            photoBrowser.displayNavArrows = YES;
-                                            photoBrowser.displayActionButton = NO;
-                                            photoBrowser.displaySelectionButtons = NO;
-                                            photoBrowser.alwaysShowControls = NO;
-                                            photoBrowser.enableGrid = NO;
-                                            photoBrowser.enableSwipeToDismiss = NO;
-                                            photoBrowser.startOnGrid = NO;
-                                            photoBrowser.autoPlayOnAppear = NO;
-                                            
-                                            [weakSelf.navigationController pushViewController:photoBrowser animated:YES];
+                                    });
+                                }];
+                            }
+                            else {
+                                if (self.isPreviewForSingleSelect) {
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        // 单选时需要预览
+                                        NSMutableArray * photos = [NSMutableArray arrayWithCapacity:10];
+                                        [weakSelf.assetArray enumerateObjectsUsingBlock:^(XRPhotoAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                            XRPhotoBrowserModel * model = [XRPhotoBrowserModel photoBrowserModelWithAsset:obj.phAsset];
+                                            [photos addObject:model];
+                                        }];
+                                        
+                                        XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] init];
+                                        photoBrowser.dataArray = photos;
+                                        
+                                        if (!cell.isInProgressLoading) {
+                                            CGRect fromRect = [XRPhotoBrowser getTransitionAnimateImageViewFromRectWithImageView:cell.assetImageView targetView:weakSelf.view.window];
+                                            [photoBrowser setTransitionAnimateWithImage:cell.assetImageView.image contentMode:cell.assetImageView.contentMode fromRect:fromRect reboundAnimateForBack:YES];
                                         }
-                                        else {
+                                        
+                                        [photoBrowser showPhotoBrowser:weakSelf displayAtIndex:index];
+                                    });
+                                }
+                                else {
+                                    [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
+                                        dispatch_async(dispatch_get_main_queue(), ^{
                                             if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(xr_photoPickerController:didSelectAssetWithOriginalImage:)]) {
                                                 [weakSelf.delegate xr_photoPickerController:weakSelf didSelectAssetWithOriginalImage:image];
                                             }
-                                        }
-                                    }
-                                }];
-                            }];
+                                        });
+                                    }];
+                                }
+                            }
                         }
                     }
                 }
@@ -859,9 +872,10 @@
                 }
                 else {
                     XRPhotoPickerAssetCell * cell = (XRPhotoPickerAssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
+                    NSUInteger index = indexPath.item - 1;
                     
-                    if (indexPath.item - 1 < self.assetArray.count) {
-                        XRPhotoAssetModel * assetModel = self.assetArray[indexPath.item - 1];
+                    if (index < self.assetArray.count) {
+                        XRPhotoAssetModel * assetModel = self.assetArray[index];
                         assetModel.indexPath = indexPath;
                         
                         if (self.isAllowMultipleSelect) {
@@ -890,41 +904,45 @@
                         }
                         else {
                             // 单选
-                            [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
-                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                    if (weakSelf.isAllowCrop) {
+                            if (self.isAllowCrop) {
+                                // 需要裁剪
+                                [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
+                                    dispatch_async(dispatch_get_main_queue(), ^{
                                         [weakSelf cropPhotoWithImage:image];
-                                    }
-                                    else {
-                                        if (weakSelf.isPreviewForSingleSelect) {
-                                            // 单选时需要预览
-                                            [weakSelf.selectedAssetArray removeAllObjects];
-                                            [weakSelf.selectedAssetArray addObject:assetModel];
-                                            
-                                            weakSelf.tmpSelectedAssetArray = [NSMutableArray arrayWithArray:weakSelf.selectedAssetArray];
-                                            
-                                            XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] initWithDelegate:weakSelf tmpAssets:weakSelf.tmpSelectedAssetArray];
-                                            photoBrowser.isPreviewForSingleSelect = weakSelf.isPreviewForSingleSelect;
-                                            photoBrowser.zoomPhotosToFill = NO;
-                                            photoBrowser.displayNavArrows = YES;
-                                            photoBrowser.displayActionButton = NO;
-                                            photoBrowser.displaySelectionButtons = NO;
-                                            photoBrowser.alwaysShowControls = NO;
-                                            photoBrowser.enableGrid = NO;
-                                            photoBrowser.enableSwipeToDismiss = NO;
-                                            photoBrowser.startOnGrid = NO;
-                                            photoBrowser.autoPlayOnAppear = NO;
-                                            
-                                            [weakSelf.navigationController pushViewController:photoBrowser animated:YES];
+                                    });
+                                }];
+                            }
+                            else {
+                                if (self.isPreviewForSingleSelect) {
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        // 单选时需要预览
+                                        NSMutableArray * photos = [NSMutableArray arrayWithCapacity:10];
+                                        [weakSelf.assetArray enumerateObjectsUsingBlock:^(XRPhotoAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                            XRPhotoBrowserModel * model = [XRPhotoBrowserModel photoBrowserModelWithAsset:obj.phAsset];
+                                            [photos addObject:model];
+                                        }];
+                                        
+                                        XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] init];
+                                        photoBrowser.dataArray = photos;
+                                        
+                                        if (!cell.isInProgressLoading) {
+                                            CGRect fromRect = [XRPhotoBrowser getTransitionAnimateImageViewFromRectWithImageView:cell.assetImageView targetView:weakSelf.view.window];
+                                            [photoBrowser setTransitionAnimateWithImage:cell.assetImageView.image contentMode:cell.assetImageView.contentMode fromRect:fromRect reboundAnimateForBack:YES];
                                         }
-                                        else {
+                                        
+                                        [photoBrowser showPhotoBrowser:weakSelf displayAtIndex:index];
+                                    });
+                                }
+                                else {
+                                    [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
+                                        dispatch_async(dispatch_get_main_queue(), ^{
                                             if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(xr_photoPickerController:didSelectAssetWithOriginalImage:)]) {
                                                 [weakSelf.delegate xr_photoPickerController:weakSelf didSelectAssetWithOriginalImage:image];
                                             }
-                                        }
-                                    }
-                                }];
-                            }];
+                                        });
+                                    }];
+                                }
+                            }
                         }
                     }
                 }
@@ -933,8 +951,10 @@
         else {
             XRPhotoPickerAssetCell * cell = (XRPhotoPickerAssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
             
-            if (indexPath.item < self.assetArray.count) {
-                XRPhotoAssetModel * assetModel = self.assetArray[indexPath.item];
+            NSUInteger index = indexPath.item;
+            
+            if (index < self.assetArray.count) {
+                XRPhotoAssetModel * assetModel = self.assetArray[index];
                 assetModel.indexPath = indexPath;
                 
                 if (self.isAllowMultipleSelect) {
@@ -964,42 +984,45 @@
                 }
                 else {
                     // 单选
-                    [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
-                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                            
-                            if (weakSelf.isAllowCrop) {
+                    if (self.isAllowCrop) {
+                        // 需要裁剪
+                        [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
                                 [weakSelf cropPhotoWithImage:image];
-                            }
-                            else {
-                                if (weakSelf.isPreviewForSingleSelect) {
-                                    // 单选时需要预览
-                                    [weakSelf.selectedAssetArray removeAllObjects];
-                                    [weakSelf.selectedAssetArray addObject:assetModel];
-                                    
-                                    weakSelf.tmpSelectedAssetArray = [NSMutableArray arrayWithArray:weakSelf.selectedAssetArray];
-                                    
-                                    XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] initWithDelegate:weakSelf tmpAssets:weakSelf.tmpSelectedAssetArray];
-                                    photoBrowser.isPreviewForSingleSelect = weakSelf.isPreviewForSingleSelect;
-                                    photoBrowser.zoomPhotosToFill = NO;
-                                    photoBrowser.displayNavArrows = YES;
-                                    photoBrowser.displayActionButton = NO;
-                                    photoBrowser.displaySelectionButtons = NO;
-                                    photoBrowser.alwaysShowControls = NO;
-                                    photoBrowser.enableGrid = NO;
-                                    photoBrowser.enableSwipeToDismiss = NO;
-                                    photoBrowser.startOnGrid = NO;
-                                    photoBrowser.autoPlayOnAppear = NO;
-                                    
-                                    [weakSelf.navigationController pushViewController:photoBrowser animated:YES];
+                            });
+                        }];
+                    }
+                    else {
+                        if (self.isPreviewForSingleSelect) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                // 单选时需要预览
+                                NSMutableArray * photos = [NSMutableArray arrayWithCapacity:10];
+                                [weakSelf.assetArray enumerateObjectsUsingBlock:^(XRPhotoAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                    XRPhotoBrowserModel * model = [XRPhotoBrowserModel photoBrowserModelWithAsset:obj.phAsset];
+                                    [photos addObject:model];
+                                }];
+                                
+                                XRPhotoBrowser * photoBrowser = [[XRPhotoBrowser alloc] init];
+                                photoBrowser.dataArray = photos;
+                                
+                                if (!cell.isInProgressLoading) {
+                                    CGRect fromRect = [XRPhotoBrowser getTransitionAnimateImageViewFromRectWithImageView:cell.assetImageView targetView:weakSelf.view.window];
+                                    [photoBrowser setTransitionAnimateWithImage:cell.assetImageView.image contentMode:cell.assetImageView.contentMode fromRect:fromRect reboundAnimateForBack:YES];
                                 }
-                                else {
+                                
+                                [photoBrowser showPhotoBrowser:weakSelf displayAtIndex:index];
+                            });
+                        }
+                        else {
+                            [self.phManager getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
+                                dispatch_async(dispatch_get_main_queue(), ^{
                                     if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(xr_photoPickerController:didSelectAssetWithOriginalImage:)]) {
                                         [weakSelf.delegate xr_photoPickerController:weakSelf didSelectAssetWithOriginalImage:image];
                                     }
-                                }
-                            }
-                        }];
-                    }];
+                                });
+                            }];
+                        }
+                    }
                 }
             }
         }
@@ -1112,122 +1135,122 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - MWPhotoBrowserDelegate & XRPhotoBrowserDelegate
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return self.selectedAssetArray.count;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    
-    if (index < self.selectedAssetArray.count) {
-        
-        CGFloat scale = [UIScreen mainScreen].scale;
-        CGFloat imageSize = MAX(self.screenWidth, self.screenHeight) * 1.5;
-        CGSize imageTargetSize = CGSizeMake(imageSize * scale, imageSize * scale); // 大图
-        
-        XRPhotoAssetModel * asset = self.selectedAssetArray[index];
-        MWPhoto * photo = [[MWPhoto alloc] initWithAsset:asset.phAsset targetSize:imageTargetSize];
-        return photo;
-    }
-    return nil;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index {
-    
-    if (index < self.selectedAssetArray.count) {
-        
-        CGFloat scale = [UIScreen mainScreen].scale;
-        CGFloat imageSize = MAX(self.screenWidth, self.screenHeight) * 1.5;
-        CGSize thumbTargetSize = CGSizeMake(imageSize / 3.0 * scale, imageSize / 3.0 * scale); // 缩略图
-        
-        XRPhotoAssetModel * asset = self.selectedAssetArray[index];
-        MWPhoto * photo = [[MWPhoto alloc] initWithAsset:asset.phAsset targetSize:thumbTargetSize];
-        return photo;
-    }
-    return nil;
-}
-
-- (NSString *)photoBrowser:(MWPhotoBrowser *)photoBrowser titleForPhotoAtIndex:(NSUInteger)index {
-    return nil;
-}
-    
-- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser didDisplayPhotoAtIndex:(NSUInteger)index {
-    XRLog(@"didDisplay Index -> %lu", (unsigned long)index);
-}
-
-- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser actionButtonPressedForPhotoAtIndex:(NSUInteger)index {
-}
-
-- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index selectedChanged:(BOOL)selected {
-    
-}
-
-- (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser {
-}
-
-#pragma mark - XRPhotoBrowserDelegate
-- (NSUInteger)xr_MaxSelectedPhotosForPhotoBrowser {
-    return self.maxSelectPhotos;
-}
-
-- (void)xr_photoBrowser:(MWPhotoBrowser *)photoBrowser asset:(XRPhotoAssetModel *)asset isSelected:(BOOL)selected {
-    
-    if (selected) {
-        if (![self.tmpSelectedAssetArray containsObject:asset]) {
-            [self.tmpSelectedAssetArray addObject:asset];
-        }
-    }
-    else {
-        if ([self.tmpSelectedAssetArray containsObject:asset]) {
-            [self.tmpSelectedAssetArray removeObject:asset];
-        }
-    }
-}
-
-- (BOOL)xr_photoBrowser:(MWPhotoBrowser *)photoBrowser isPhotoSelectedWithAsset:(XRPhotoAssetModel *)asset {
-    return [self.tmpSelectedAssetArray containsObject:asset];
-}
-
-- (void)xr_navigationLeftItemActionForPhotoBrowser {
-    // 刷新选择的状态
-    [self.selectedAssetArray removeAllObjects];
-    [self.selectedAssetArray addObjectsFromArray:self.tmpSelectedAssetArray];
-    [self.mainCollection reloadData];
-    
-    self.selectStepCounter = self.selectedAssetArray.count;
-    
-    [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
-}
-
-- (void)xr_finishedBtnActionForPhotoBrowser {
-    
-    if (_isPreviewForSingleSelect) {
-        
-        if (self.selectedAssetArray.count == 0) {
-            return;
-        }
-        
-        XRPhotoAssetModel * assetModel = self.selectedAssetArray[0];
-        [[self phManager] getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                if (self.delegate && [self.delegate respondsToSelector:@selector(xr_photoPickerController:didSelectAssetWithOriginalImage:)]) {
-                    [self.delegate xr_photoPickerController:self didSelectAssetWithOriginalImage:image];
-                }
-            }];
-        }];
-    }
-    else {
-        [self.selectedAssetArray removeAllObjects];
-        [self.selectedAssetArray addObjectsFromArray:self.tmpSelectedAssetArray];
-        [self.mainCollection reloadData];
-        [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
-        
-        if (self.delegate && [self.delegate respondsToSelector:@selector(xr_photoPickerControllerDidFinished:didSelectAssets:)]) {
-            [self.delegate xr_photoPickerControllerDidFinished:self didSelectAssets:self.selectedAssetArray];
-        }
-    }
-    
-}
+//#pragma mark - MWPhotoBrowserDelegate & XRPhotoBrowserDelegate
+//- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+//    return self.selectedAssetArray.count;
+//}
+//
+//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+//
+//    if (index < self.selectedAssetArray.count) {
+//
+//        CGFloat scale = [UIScreen mainScreen].scale;
+//        CGFloat imageSize = MAX(self.screenWidth, self.screenHeight) * 1.5;
+//        CGSize imageTargetSize = CGSizeMake(imageSize * scale, imageSize * scale); // 大图
+//
+//        XRPhotoAssetModel * asset = self.selectedAssetArray[index];
+//        MWPhoto * photo = [[MWPhoto alloc] initWithAsset:asset.phAsset targetSize:imageTargetSize];
+//        return photo;
+//    }
+//    return nil;
+//}
+//
+//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index {
+//
+//    if (index < self.selectedAssetArray.count) {
+//
+//        CGFloat scale = [UIScreen mainScreen].scale;
+//        CGFloat imageSize = MAX(self.screenWidth, self.screenHeight) * 1.5;
+//        CGSize thumbTargetSize = CGSizeMake(imageSize / 3.0 * scale, imageSize / 3.0 * scale); // 缩略图
+//
+//        XRPhotoAssetModel * asset = self.selectedAssetArray[index];
+//        MWPhoto * photo = [[MWPhoto alloc] initWithAsset:asset.phAsset targetSize:thumbTargetSize];
+//        return photo;
+//    }
+//    return nil;
+//}
+//
+//- (NSString *)photoBrowser:(MWPhotoBrowser *)photoBrowser titleForPhotoAtIndex:(NSUInteger)index {
+//    return nil;
+//}
+//
+//- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser didDisplayPhotoAtIndex:(NSUInteger)index {
+//    XRLog(@"didDisplay Index -> %lu", (unsigned long)index);
+//}
+//
+//- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser actionButtonPressedForPhotoAtIndex:(NSUInteger)index {
+//}
+//
+//- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index selectedChanged:(BOOL)selected {
+//
+//}
+//
+//- (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser {
+//}
+//
+//#pragma mark - XRPhotoBrowserDelegate
+//- (NSUInteger)xr_MaxSelectedPhotosForPhotoBrowser {
+//    return self.maxSelectPhotos;
+//}
+//
+//- (void)xr_photoBrowser:(MWPhotoBrowser *)photoBrowser asset:(XRPhotoAssetModel *)asset isSelected:(BOOL)selected {
+//
+//    if (selected) {
+//        if (![self.tmpSelectedAssetArray containsObject:asset]) {
+//            [self.tmpSelectedAssetArray addObject:asset];
+//        }
+//    }
+//    else {
+//        if ([self.tmpSelectedAssetArray containsObject:asset]) {
+//            [self.tmpSelectedAssetArray removeObject:asset];
+//        }
+//    }
+//}
+//
+//- (BOOL)xr_photoBrowser:(MWPhotoBrowser *)photoBrowser isPhotoSelectedWithAsset:(XRPhotoAssetModel *)asset {
+//    return [self.tmpSelectedAssetArray containsObject:asset];
+//}
+//
+//- (void)xr_navigationLeftItemActionForPhotoBrowser {
+//    // 刷新选择的状态
+//    [self.selectedAssetArray removeAllObjects];
+//    [self.selectedAssetArray addObjectsFromArray:self.tmpSelectedAssetArray];
+//    [self.mainCollection reloadData];
+//
+//    self.selectStepCounter = self.selectedAssetArray.count;
+//
+//    [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
+//}
+//
+//- (void)xr_finishedBtnActionForPhotoBrowser {
+//
+//    if (_isPreviewForSingleSelect) {
+//
+//        if (self.selectedAssetArray.count == 0) {
+//            return;
+//        }
+//
+//        XRPhotoAssetModel * assetModel = self.selectedAssetArray[0];
+//        [[self phManager] getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
+//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                if (self.delegate && [self.delegate respondsToSelector:@selector(xr_photoPickerController:didSelectAssetWithOriginalImage:)]) {
+//                    [self.delegate xr_photoPickerController:self didSelectAssetWithOriginalImage:image];
+//                }
+//            }];
+//        }];
+//    }
+//    else {
+//        [self.selectedAssetArray removeAllObjects];
+//        [self.selectedAssetArray addObjectsFromArray:self.tmpSelectedAssetArray];
+//        [self.mainCollection reloadData];
+//        [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
+//
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(xr_photoPickerControllerDidFinished:didSelectAssets:)]) {
+//            [self.delegate xr_photoPickerControllerDidFinished:self didSelectAssets:self.selectedAssetArray];
+//        }
+//    }
+//
+//}
 
 #pragma mark - RSKImageCropViewControllerDelegate & DataSource
 

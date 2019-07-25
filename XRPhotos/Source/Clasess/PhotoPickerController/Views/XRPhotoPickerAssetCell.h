@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -20,13 +20,16 @@
 //  SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
 
 @interface XRPhotoPickerAssetCell : UICollectionViewCell
 
-@property (nonatomic, copy) NSString * representedAssetIdentifier;
+@property (nonatomic, assign) PHImageRequestID imageReqID;
 @property (nonatomic, strong) UIImageView * assetImageView;
 @property (nonatomic, strong) UIButton * selectButton;
-
 @property (nonatomic, strong) UILabel * progressLbl;
+
+// 是否是正在加载中
+@property (nonatomic, assign) BOOL isInProgressLoading;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,4 +25,5 @@
 + (UIImage *)imageForResourceName:(NSString *)imageName selfClass:(Class)selfClass;
 - (UIImage *)fixOrientation;
 + (UIImage *)backgroundImageWithColor:(UIColor *)backgroundColor size:(CGSize)size;
+- (UIImage *)imageCompressToSize:(CGSize)size;
 @end

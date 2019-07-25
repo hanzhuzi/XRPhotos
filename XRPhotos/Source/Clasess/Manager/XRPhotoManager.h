@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017-2020 是心作佛
+//  Copyright (c) 2017-2024 是心作佛
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
 
 #define XR_iCloud_DownloadProgressKey @"XR_iCloud_DownloadProgressKey"
 #define XR_iCloud_IndexPathKey @"XR_iCloud_IndexPathKey"
@@ -28,7 +29,7 @@
 @class XRPhotoAlbumModel;
 @class XRPhotoAssetModel;
 @class PHCachingImageManager;
-@interface XRPhtoManager : NSObject
+@interface XRPhotoManager : NSObject
 
 /// 需要进行caching处理，目前没有进行caching处理。
 @property (nonatomic, strong) PHCachingImageManager * cacheImageManager;
@@ -36,7 +37,7 @@
 @property (nonatomic, assign) BOOL isAscingForCreation; // 是否按照创建日期进行升序排序 默认YES
 @property (nonatomic, assign) BOOL authorizationStatusAuthrized; // 是否已经授权验证了
 
-+ (XRPhtoManager *)defaultManager;
++ (XRPhotoManager *)defaultManager;
 
 /** 获取相机相册列表
  
@@ -88,7 +89,9 @@
  
  @param completeBlock 获取图片的回调
  */
-- (void)getFitsThumbImageWithAsset:(XRPhotoAssetModel *)phModel completeBlock:(void (^)(UIImage * image))completeBlock;
+- (void)getFitsThumbImageWithAsset:(XRPhotoAssetModel *)phModel
+            getImageRequestIDBlock:(void (^)(PHImageRequestID imageRequestID))imageRequestIDBlock
+                     completeBlock:(void (^)(UIImage * image, PHImageRequestID imageRequestID))completeBlock;
 
 /** 获取合适的大图
  
