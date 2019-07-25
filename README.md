@@ -18,12 +18,24 @@ Download `XRPhotos` add the files in the `Source` directory to your project file
 
 * ARC
 * Objective-C
-* iOS 8.0
+* iOS 9.0
 * Xcode 10 or Latter
 * Adaptation iPhoneX, iPhone XS, iPhone XS Max, iPhone XR
 iPhone，iPad，Screen anyway.
 
 ### LICENSE
+
+XRPhotos is A Based on a  PhotosKit  photo selection framework
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
