@@ -165,12 +165,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XRPhotoBrowser/XRPhotoBrowser.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XRPhotos/XRPhotos.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XRPhotoBrowser/XRPhotoBrowser.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XRPhotos/XRPhotos.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

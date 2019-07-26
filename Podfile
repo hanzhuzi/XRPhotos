@@ -7,11 +7,10 @@ target 'XRPhotos' do
 
   # Pods for XRPhotos
   
-  pod 'RSKImageCropper', '~> 2.2.1'
-#  pod 'XRPhotos', '~> 1.0.3'
-  pod 'MBProgressHUD'
-  pod 'XRPhotoBrowser', '~> 1.0.2'
-  
+  pod 'XRPhotos', '~> 1.0.4'
+#  pod 'MBProgressHUD', '~> 1.1.0'
+#  pod 'XRPhotoBrowser', '~> 1.0.2'
+
   target 'XRPhotosTests' do
     inherit! :search_paths
     # Pods for testing
