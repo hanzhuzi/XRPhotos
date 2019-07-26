@@ -223,7 +223,12 @@
     }
     
     [self.requestQueue addOperationWithBlock:^{
-        CGFloat scale = [UIScreen mainScreen].scale;
+        
+        // cancel之前的请求
+        if (phModel.requestID != PHInvalidImageRequestID) {
+            [self.cacheImageManager cancelImageRequest:phModel.requestID];
+            phModel.requestID = PHInvalidImageRequestID;
+        }
         
         // 获取图片
         PHImageRequestOptions * reqOptions = [[PHImageRequestOptions alloc] init];
@@ -248,6 +253,8 @@
         };
         
         PHAsset * pAsset = phModel.phAsset;
+        
+        CGFloat scale = [UIScreen mainScreen].scale;
         
         PHImageRequestID imageReqID = [self.cacheImageManager requestImageForAsset:pAsset targetSize:CGSizeMake(targetSize.width * scale, targetSize.height * scale) contentMode:PHImageContentModeAspectFill options:reqOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (info && info[PHImageResultRequestIDKey]) {
@@ -279,9 +286,8 @@
             else {
                 // 一般不会到这里，异步请求若走到这里也无法判断是哪一个请求出错了。
                 XRLog(@"requestImageForAsset is error!");
-                UIImage * resImage = [result fixOrientation];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    completeBlock(YES, resImage);
+                    completeBlock(YES, nil);
                 });
             }
         }];
@@ -294,6 +300,12 @@
 - (void)getOriginalImageWithAsset:(XRPhotoAssetModel *)phModel completeBlock:(void (^)(UIImage * image))completeBlock {
     
     [self.requestQueue addOperationWithBlock:^{
+        
+        // cancel之前的请求
+        if (phModel.requestID != PHInvalidImageRequestID) {
+            [self.cacheImageManager cancelImageRequest:phModel.requestID];
+            phModel.requestID = PHInvalidImageRequestID;
+        }
         
         // 获取图片
         PHImageRequestOptions * reqOptions = [[PHImageRequestOptions alloc] init];
@@ -348,9 +360,8 @@
             else {
                 // 一般不会到这里，异步请求若走到这里也无法判断是哪一个请求出错了。
                 XRLog(@"requestImageForAsset is error!");
-                UIImage * resImage = [result fixOrientation];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    completeBlock(resImage);
+                    completeBlock(nil);
                 });
             }
         }];
@@ -447,6 +458,12 @@
     
     [self.requestQueue addOperationWithBlock:^{
         
+        // cancel之前的请求
+        if (phModel.requestID != PHInvalidImageRequestID) {
+            [self.cacheImageManager cancelImageRequest:phModel.requestID];
+            phModel.requestID = PHInvalidImageRequestID;
+        }
+        
         // 获取图片
         PHImageRequestOptions * reqOptions = [[PHImageRequestOptions alloc] init];
         reqOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
@@ -503,6 +520,9 @@
             else {
                 // 一般不会到这里，异步请求若走到这里也无法判断是哪一个请求出错了。
                 XRLog(@"requestImageForAsset is error!");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completeBlock(nil);
+                });
             }
         }];
         

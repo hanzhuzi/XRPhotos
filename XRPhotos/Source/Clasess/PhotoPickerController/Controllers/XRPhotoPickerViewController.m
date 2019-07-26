@@ -1135,59 +1135,6 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-//#pragma mark - MWPhotoBrowserDelegate & XRPhotoBrowserDelegate
-//- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-//    return self.selectedAssetArray.count;
-//}
-//
-//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-//
-//    if (index < self.selectedAssetArray.count) {
-//
-//        CGFloat scale = [UIScreen mainScreen].scale;
-//        CGFloat imageSize = MAX(self.screenWidth, self.screenHeight) * 1.5;
-//        CGSize imageTargetSize = CGSizeMake(imageSize * scale, imageSize * scale); // 大图
-//
-//        XRPhotoAssetModel * asset = self.selectedAssetArray[index];
-//        MWPhoto * photo = [[MWPhoto alloc] initWithAsset:asset.phAsset targetSize:imageTargetSize];
-//        return photo;
-//    }
-//    return nil;
-//}
-//
-//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index {
-//
-//    if (index < self.selectedAssetArray.count) {
-//
-//        CGFloat scale = [UIScreen mainScreen].scale;
-//        CGFloat imageSize = MAX(self.screenWidth, self.screenHeight) * 1.5;
-//        CGSize thumbTargetSize = CGSizeMake(imageSize / 3.0 * scale, imageSize / 3.0 * scale); // 缩略图
-//
-//        XRPhotoAssetModel * asset = self.selectedAssetArray[index];
-//        MWPhoto * photo = [[MWPhoto alloc] initWithAsset:asset.phAsset targetSize:thumbTargetSize];
-//        return photo;
-//    }
-//    return nil;
-//}
-//
-//- (NSString *)photoBrowser:(MWPhotoBrowser *)photoBrowser titleForPhotoAtIndex:(NSUInteger)index {
-//    return nil;
-//}
-//
-//- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser didDisplayPhotoAtIndex:(NSUInteger)index {
-//    XRLog(@"didDisplay Index -> %lu", (unsigned long)index);
-//}
-//
-//- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser actionButtonPressedForPhotoAtIndex:(NSUInteger)index {
-//}
-//
-//- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index selectedChanged:(BOOL)selected {
-//
-//}
-//
-//- (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser {
-//}
-//
 //#pragma mark - XRPhotoBrowserDelegate
 //- (NSUInteger)xr_MaxSelectedPhotosForPhotoBrowser {
 //    return self.maxSelectPhotos;
@@ -1211,46 +1158,6 @@
 //    return [self.tmpSelectedAssetArray containsObject:asset];
 //}
 //
-//- (void)xr_navigationLeftItemActionForPhotoBrowser {
-//    // 刷新选择的状态
-//    [self.selectedAssetArray removeAllObjects];
-//    [self.selectedAssetArray addObjectsFromArray:self.tmpSelectedAssetArray];
-//    [self.mainCollection reloadData];
-//
-//    self.selectStepCounter = self.selectedAssetArray.count;
-//
-//    [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
-//}
-//
-//- (void)xr_finishedBtnActionForPhotoBrowser {
-//
-//    if (_isPreviewForSingleSelect) {
-//
-//        if (self.selectedAssetArray.count == 0) {
-//            return;
-//        }
-//
-//        XRPhotoAssetModel * assetModel = self.selectedAssetArray[0];
-//        [[self phManager] getFitsBigImageWithAsset:assetModel completeBlock:^(UIImage *image) {
-//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//                if (self.delegate && [self.delegate respondsToSelector:@selector(xr_photoPickerController:didSelectAssetWithOriginalImage:)]) {
-//                    [self.delegate xr_photoPickerController:self didSelectAssetWithOriginalImage:image];
-//                }
-//            }];
-//        }];
-//    }
-//    else {
-//        [self.selectedAssetArray removeAllObjects];
-//        [self.selectedAssetArray addObjectsFromArray:self.tmpSelectedAssetArray];
-//        [self.mainCollection reloadData];
-//        [_bottomView setMaxSelectCount:_maxSelectPhotos currentSelectCount:_selectedAssetArray.count];
-//
-//        if (self.delegate && [self.delegate respondsToSelector:@selector(xr_photoPickerControllerDidFinished:didSelectAssets:)]) {
-//            [self.delegate xr_photoPickerControllerDidFinished:self didSelectAssets:self.selectedAssetArray];
-//        }
-//    }
-//
-//}
 
 #pragma mark - RSKImageCropViewControllerDelegate & DataSource
 
