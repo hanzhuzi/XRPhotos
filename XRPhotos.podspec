@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.weak_frameworks = 'Photos'
   s.requires_arc = true
   
-  s.dependency  'XRPhotoBrowser', '~> 1.0.2'
+  s.dependency  'XRPhotoBrowser', '~> 1.0.3'
   s.dependency  'RSKImageCropper', '~> 2.2.3'
   s.dependency  'MBProgressHUD', '~> 1.1.0'
   
