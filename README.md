@@ -23,6 +23,9 @@ Download `XRPhotos` add the files in the `Source` directory to your project file
 * Adaptation iPhoneX, iPhone XS, iPhone XS Max, iPhone XR
 iPhone，iPad，Screen anyway.
 
+### Reveal
+![](https://github.com/hanzhuzi/XRPhotos/blob/master/video/mutable.mp4?raw=true)
+
 ### LICENSE
 
 XRPhotos is A Based on a  PhotosKit  photo selection framework
