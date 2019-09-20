@@ -24,7 +24,7 @@ Download `XRPhotos` add the files in the `Source` directory to your project file
 iPhone，iPad，Screen anyway.
 
 ### Reveal
-![](https://github.com/hanzhuzi/XRPhotos/blob/master/video/mutable.mp4?raw=true)
+![](https://github.com/hanzhuzi/XRPhotos/blob/master/video/multable.gif)
 
 ### LICENSE
 
